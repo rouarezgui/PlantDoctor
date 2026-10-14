@@ -1,0 +1,587 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ACC02FEC307F8597002045A0 /* PlanDoctorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC02FEB307F8597002045A0 /* PlanDoctorApp.swift */; };
+		ACC02FEE307F8597002045A0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC02FED307F8597002045A0 /* ContentView.swift */; };
+		ACC02FF0307F859A002045A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC02FEF307F859A002045A0 /* Assets.xcassets */; };
+		ACC02FF3307F859A002045A0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC02FF2307F859A002045A0 /* Preview Assets.xcassets */; };
+		ACC02FFD307F859A002045A0 /* PlanDoctorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC02FFC307F859A002045A0 /* PlanDoctorTests.swift */; };
+		ACC03007307F859B002045A0 /* PlanDoctorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC03006307F859B002045A0 /* PlanDoctorUITests.swift */; };
+		ACC03009307F859B002045A0 /* PlanDoctorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC03008307F859B002045A0 /* PlanDoctorUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ACC02FF9307F859A002045A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ACC02FE0307F8597002045A0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ACC02FE7307F8597002045A0;
+			remoteInfo = PlanDoctor;
+		};
+		ACC03003307F859B002045A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ACC02FE0307F8597002045A0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ACC02FE7307F8597002045A0;
+			remoteInfo = PlanDoctor;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		ACC02FE8307F8597002045A0 /* PlanDoctor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanDoctor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACC02FEB307F8597002045A0 /* PlanDoctorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDoctorApp.swift; sourceTree = "<group>"; };
+		ACC02FED307F8597002045A0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		ACC02FEF307F859A002045A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ACC02FF2307F859A002045A0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		ACC02FF8307F859A002045A0 /* PlanDoctorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlanDoctorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACC02FFC307F859A002045A0 /* PlanDoctorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDoctorTests.swift; sourceTree = "<group>"; };
+		ACC03002307F859B002045A0 /* PlanDoctorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlanDoctorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACC03006307F859B002045A0 /* PlanDoctorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDoctorUITests.swift; sourceTree = "<group>"; };
+		ACC03008307F859B002045A0 /* PlanDoctorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDoctorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ACC02FE5307F8597002045A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACC02FF5307F859A002045A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACC02FFF307F859B002045A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ACC02FDF307F8597002045A0 = {
+			isa = PBXGroup;
+			children = (
+				ACC02FEA307F8597002045A0 /* PlanDoctor */,
+				ACC02FFB307F859A002045A0 /* PlanDoctorTests */,
+				ACC03005307F859B002045A0 /* PlanDoctorUITests */,
+				ACC02FE9307F8597002045A0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ACC02FE9307F8597002045A0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ACC02FE8307F8597002045A0 /* PlanDoctor.app */,
+				ACC02FF8307F859A002045A0 /* PlanDoctorTests.xctest */,
+				ACC03002307F859B002045A0 /* PlanDoctorUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ACC02FEA307F8597002045A0 /* PlanDoctor */ = {
+			isa = PBXGroup;
+			children = (
+				ACC02FEB307F8597002045A0 /* PlanDoctorApp.swift */,
+				ACC02FED307F8597002045A0 /* ContentView.swift */,
+				ACC02FEF307F859A002045A0 /* Assets.xcassets */,
+				ACC02FF1307F859A002045A0 /* Preview Content */,
+			);
+			path = PlanDoctor;
+			sourceTree = "<group>";
+		};
+		ACC02FF1307F859A002045A0 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				ACC02FF2307F859A002045A0 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		ACC02FFB307F859A002045A0 /* PlanDoctorTests */ = {
+			isa = PBXGroup;
+			children = (
+				ACC02FFC307F859A002045A0 /* PlanDoctorTests.swift */,
+			);
+			path = PlanDoctorTests;
+			sourceTree = "<group>";
+		};
+		ACC03005307F859B002045A0 /* PlanDoctorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				ACC03006307F859B002045A0 /* PlanDoctorUITests.swift */,
+				ACC03008307F859B002045A0 /* PlanDoctorUITestsLaunchTests.swift */,
+			);
+			path = PlanDoctorUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ACC02FE7307F8597002045A0 /* PlanDoctor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACC0300C307F859B002045A0 /* Build configuration list for PBXNativeTarget "PlanDoctor" */;
+			buildPhases = (
+				ACC02FE4307F8597002045A0 /* Sources */,
+				ACC02FE5307F8597002045A0 /* Frameworks */,
+				ACC02FE6307F8597002045A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PlanDoctor;
+			productName = PlanDoctor;
+			productReference = ACC02FE8307F8597002045A0 /* PlanDoctor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ACC02FF7307F859A002045A0 /* PlanDoctorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACC0300F307F859B002045A0 /* Build configuration list for PBXNativeTarget "PlanDoctorTests" */;
+			buildPhases = (
+				ACC02FF4307F859A002045A0 /* Sources */,
+				ACC02FF5307F859A002045A0 /* Frameworks */,
+				ACC02FF6307F859A002045A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ACC02FFA307F859A002045A0 /* PBXTargetDependency */,
+			);
+			name = PlanDoctorTests;
+			productName = PlanDoctorTests;
+			productReference = ACC02FF8307F859A002045A0 /* PlanDoctorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		ACC03001307F859B002045A0 /* PlanDoctorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACC03012307F859B002045A0 /* Build configuration list for PBXNativeTarget "PlanDoctorUITests" */;
+			buildPhases = (
+				ACC02FFE307F859B002045A0 /* Sources */,
+				ACC02FFF307F859B002045A0 /* Frameworks */,
+				ACC03000307F859B002045A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ACC03004307F859B002045A0 /* PBXTargetDependency */,
+			);
+			name = PlanDoctorUITests;
+			productName = PlanDoctorUITests;
+			productReference = ACC03002307F859B002045A0 /* PlanDoctorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ACC02FE0307F8597002045A0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					ACC02FE7307F8597002045A0 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					ACC02FF7307F859A002045A0 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = ACC02FE7307F8597002045A0;
+					};
+					ACC03001307F859B002045A0 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = ACC02FE7307F8597002045A0;
+					};
+				};
+			};
+			buildConfigurationList = ACC02FE3307F8597002045A0 /* Build configuration list for PBXProject "PlanDoctor" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ACC02FDF307F8597002045A0;
+			productRefGroup = ACC02FE9307F8597002045A0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ACC02FE7307F8597002045A0 /* PlanDoctor */,
+				ACC02FF7307F859A002045A0 /* PlanDoctorTests */,
+				ACC03001307F859B002045A0 /* PlanDoctorUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ACC02FE6307F8597002045A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACC02FF3307F859A002045A0 /* Preview Assets.xcassets in Resources */,
+				ACC02FF0307F859A002045A0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACC02FF6307F859A002045A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACC03000307F859B002045A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ACC02FE4307F8597002045A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACC02FEE307F8597002045A0 /* ContentView.swift in Sources */,
+				ACC02FEC307F8597002045A0 /* PlanDoctorApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACC02FF4307F859A002045A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACC02FFD307F859A002045A0 /* PlanDoctorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACC02FFE307F859B002045A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACC03009307F859B002045A0 /* PlanDoctorUITestsLaunchTests.swift in Sources */,
+				ACC03007307F859B002045A0 /* PlanDoctorUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ACC02FFA307F859A002045A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ACC02FE7307F8597002045A0 /* PlanDoctor */;
+			targetProxy = ACC02FF9307F859A002045A0 /* PBXContainerItemProxy */;
+		};
+		ACC03004307F859B002045A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ACC02FE7307F8597002045A0 /* PlanDoctor */;
+			targetProxy = ACC03003307F859B002045A0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		ACC0300A307F859B002045A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ACC0300B307F859B002045A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ACC0300D307F859B002045A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PlanDoctor/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Tekup.PlanDoctor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ACC0300E307F859B002045A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PlanDoctor/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Tekup.PlanDoctor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		ACC03010307F859B002045A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Tekup.PlanDoctorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlanDoctor.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PlanDoctor";
+			};
+			name = Debug;
+		};
+		ACC03011307F859B002045A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Tekup.PlanDoctorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlanDoctor.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PlanDoctor";
+			};
+			name = Release;
+		};
+		ACC03013307F859B002045A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Tekup.PlanDoctorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PlanDoctor;
+			};
+			name = Debug;
+		};
+		ACC03014307F859B002045A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Tekup.PlanDoctorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PlanDoctor;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ACC02FE3307F8597002045A0 /* Build configuration list for PBXProject "PlanDoctor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACC0300A307F859B002045A0 /* Debug */,
+				ACC0300B307F859B002045A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACC0300C307F859B002045A0 /* Build configuration list for PBXNativeTarget "PlanDoctor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACC0300D307F859B002045A0 /* Debug */,
+				ACC0300E307F859B002045A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACC0300F307F859B002045A0 /* Build configuration list for PBXNativeTarget "PlanDoctorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACC03010307F859B002045A0 /* Debug */,
+				ACC03011307F859B002045A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACC03012307F859B002045A0 /* Build configuration list for PBXNativeTarget "PlanDoctorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACC03013307F859B002045A0 /* Debug */,
+				ACC03014307F859B002045A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ACC02FE0307F8597002045A0 /* Project object */;
+}
