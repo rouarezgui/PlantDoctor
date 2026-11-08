@@ -13,18 +13,35 @@ struct LottieView: UIViewRepresentable {
     var filename: String
     var onAnimationCompleted: () -> Void
 
+    func makeCoordinator() -> Coordinator {
+        Coordinator(onAnimationCompleted: onAnimationCompleted)
+    }
+
     func makeUIView(context: Context) -> LottieAnimationView {
 
         let animationView = LottieAnimationView()
-        animationView.animation = LottieAnimation.named(filename)
+
         animationView.contentMode = .scaleAspectFit
         animationView.loopMode = .playOnce
 
-        animationView.play { finished in
-            if finished {
+        if let animation = LottieAnimation.named(filename) {
+
+            animationView.animation = animation
+
+            animationView.play { finished in
+
+                guard finished else { return }
+
                 DispatchQueue.main.async {
-                    onAnimationCompleted()
+                    context.coordinator.animationDidComplete()
                 }
+            }
+
+        } else {
+
+            // If the animation file is missing, continue to the app.
+            DispatchQueue.main.async {
+                context.coordinator.animationDidComplete()
             }
         }
 
@@ -35,5 +52,26 @@ struct LottieView: UIViewRepresentable {
         _ uiView: LottieAnimationView,
         context: Context
     ) {
+        context.coordinator.onAnimationCompleted = onAnimationCompleted
+    }
+
+    // MARK: - Coordinator
+
+    class Coordinator {
+
+        var onAnimationCompleted: () -> Void
+        private var hasCompleted = false
+
+        init(onAnimationCompleted: @escaping () -> Void) {
+            self.onAnimationCompleted = onAnimationCompleted
+        }
+
+        func animationDidComplete() {
+
+            guard !hasCompleted else { return }
+
+            hasCompleted = true
+            onAnimationCompleted()
+        }
     }
 }

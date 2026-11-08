@@ -1,11 +1,6 @@
-//
-//  SignupView.swift
-//  PlanDoctor
-//
-//  Created by azertt on 7/11/2026.
-//
 
 import SwiftUI
+import FirebaseAuth
 
 struct SignupView: View {
 
@@ -23,6 +18,14 @@ struct SignupView: View {
     @State private var showPassword = false
     @State private var showConfirmPassword = false
 
+    // MARK: - Firebase States
+
+    @State private var isLoading = false
+    @State private var showAlert = false
+    @State private var alertTitle = ""
+    @State private var alertMessage = ""
+    @State private var registrationSucceeded = false
+
     // MARK: - Colors
 
     private let limeGreen = Color(
@@ -37,11 +40,13 @@ struct SignupView: View {
         blue: 0.04
     )
 
+    // MARK: - Body
+
     var body: some View {
 
         ZStack {
 
-            // MARK: - Background
+            // Background
 
             backgroundView
 
@@ -49,7 +54,7 @@ struct SignupView: View {
 
                 VStack(spacing: 22) {
 
-                    // MARK: - Back Button
+                    // Back Button
 
                     HStack {
 
@@ -69,7 +74,7 @@ struct SignupView: View {
                     }
                     .padding(.top, 15)
 
-                    // MARK: - Logo
+                    // Logo
 
                     VStack(spacing: 10) {
 
@@ -80,7 +85,11 @@ struct SignupView: View {
                                     LinearGradient(
                                         colors: [
                                             Color.green,
-                                            Color(red: 0.15, green: 0.45, blue: 0.08)
+                                            Color(
+                                                red: 0.15,
+                                                green: 0.45,
+                                                blue: 0.08
+                                            )
                                         ],
                                         startPoint: .topLeading,
                                         endPoint: .bottomTrailing
@@ -103,7 +112,7 @@ struct SignupView: View {
                     }
                     .padding(.top, 10)
 
-                    // MARK: - Page Title
+                    // Page Title
 
                     VStack(spacing: 8) {
 
@@ -118,7 +127,7 @@ struct SignupView: View {
                             .padding(.horizontal, 15)
                     }
 
-                    // MARK: - Signup Form
+                    // Signup Form
 
                     VStack(spacing: 18) {
 
@@ -150,6 +159,7 @@ struct SignupView: View {
                             password: $password,
                             isVisible: $showPassword
                         )
+                        .textContentType(.newPassword)
 
                         // Confirm Password
 
@@ -158,39 +168,57 @@ struct SignupView: View {
                             password: $confirmPassword,
                             isVisible: $showConfirmPassword
                         )
+                        .textContentType(.newPassword)
 
-                        // MARK: - Create Account Button
+                        // Create Account Button
 
                         Button {
                             registerUser()
                         } label: {
 
-                            Text("Créer mon compte")
-                                .font(.system(size: 17, weight: .bold))
-                                .foregroundStyle(.white)
-                                .frame(maxWidth: .infinity)
-                                .padding(.vertical, 18)
-                                .background(
-                                    LinearGradient(
-                                        colors: [
-                                            limeGreen,
-                                            Color(
-                                                red: 0.35,
-                                                green: 0.75,
-                                                blue: 0.02
+                            Group {
+                                if isLoading {
+
+                                    ProgressView()
+                                        .tint(.white)
+
+                                } else {
+
+                                    Text("Créer mon compte")
+                                        .font(
+                                            .system(
+                                                size: 17,
+                                                weight: .bold
                                             )
-                                        ],
-                                        startPoint: .leading,
-                                        endPoint: .trailing
-                                    )
+                                        )
+                                }
+                            }
+                            .foregroundStyle(.white)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 18)
+                            .background(
+                                LinearGradient(
+                                    colors: [
+                                        limeGreen,
+                                        Color(
+                                            red: 0.35,
+                                            green: 0.75,
+                                            blue: 0.02
+                                        )
+                                    ],
+                                    startPoint: .leading,
+                                    endPoint: .trailing
                                 )
-                                .clipShape(Capsule())
-                                .shadow(
-                                    color: limeGreen.opacity(0.35),
-                                    radius: 15,
-                                    y: 5
-                                )
+                            )
+                            .clipShape(Capsule())
+                            .shadow(
+                                color: limeGreen.opacity(0.35),
+                                radius: 15,
+                                y: 5
+                            )
                         }
+                        .disabled(isLoading)
+                        .opacity(isLoading ? 0.7 : 1)
                         .padding(.top, 8)
                     }
                     .padding(22)
@@ -212,7 +240,7 @@ struct SignupView: View {
                         radius: 25
                     )
 
-                    // MARK: - Login Navigation
+                    // Login Navigation
 
                     HStack(spacing: 6) {
 
@@ -233,6 +261,18 @@ struct SignupView: View {
                 }
                 .padding(.horizontal, 22)
             }
+        }
+        .alert(alertTitle, isPresented: $showAlert) {
+
+            Button("OK") {
+
+                if registrationSucceeded {
+                    dismiss()
+                }
+            }
+
+        } message: {
+            Text(alertMessage)
         }
         .preferredColorScheme(.dark)
         .toolbar(.hidden, for: .navigationBar)
@@ -266,7 +306,7 @@ struct SignupView: View {
                 .blur(radius: 85)
                 .offset(x: -150, y: 300)
 
-            // Decorative leaves
+            // Decorative Leaves
 
             Image(systemName: "leaf.fill")
                 .font(.system(size: 150))
@@ -352,7 +392,9 @@ struct SignupView: View {
             .tint(.white)
 
             Button {
+
                 isVisible.wrappedValue.toggle()
+
             } label: {
 
                 Image(
@@ -381,9 +423,130 @@ struct SignupView: View {
 
     private func registerUser() {
 
-        // Firebase Authentication will be integrated here.
+        // 1. Validate required fields
 
-        print("Registration form submitted")
+        let name = fullName.trimmingCharacters(
+            in: .whitespacesAndNewlines
+        )
+
+        let userEmail = email.trimmingCharacters(
+            in: .whitespacesAndNewlines
+        )
+
+        guard !name.isEmpty,
+              !userEmail.isEmpty,
+              !password.isEmpty,
+              !confirmPassword.isEmpty else {
+
+            alertTitle = "Champs obligatoires"
+            alertMessage = "Veuillez remplir tous les champs."
+            registrationSucceeded = false
+            showAlert = true
+            return
+        }
+
+        // 2. Validate email format
+
+        guard userEmail.contains("@"),
+              userEmail.contains(".") else {
+
+            alertTitle = "Adresse e-mail invalide"
+            alertMessage = "Veuillez saisir une adresse e-mail valide."
+            registrationSucceeded = false
+            showAlert = true
+            return
+        }
+
+        // 3. Validate password confirmation
+
+        guard password == confirmPassword else {
+
+            alertTitle = "Mot de passe incorrect"
+            alertMessage = "Les deux mots de passe ne correspondent pas."
+            registrationSucceeded = false
+            showAlert = true
+            return
+        }
+
+        // 4. Validate password length
+
+        guard password.count >= 6 else {
+
+            alertTitle = "Mot de passe trop court"
+            alertMessage = "Le mot de passe doit contenir au moins 6 caractères."
+            registrationSucceeded = false
+            showAlert = true
+            return
+        }
+
+        // 5. Create Firebase account
+
+        isLoading = true
+
+        Auth.auth().createUser(
+            withEmail: userEmail,
+            password: password
+        ) { result, error in
+
+            if let error = error {
+
+                DispatchQueue.main.async {
+
+                    isLoading = false
+                    alertTitle = "Erreur d'inscription"
+                    alertMessage = error.localizedDescription
+                    registrationSucceeded = false
+                    showAlert = true
+                }
+
+                return
+            }
+
+            guard let user = result?.user else {
+
+                DispatchQueue.main.async {
+
+                    isLoading = false
+                    alertTitle = "Erreur"
+                    alertMessage = "Impossible de récupérer le compte créé."
+                    registrationSucceeded = false
+                    showAlert = true
+                }
+
+                return
+            }
+
+            // 6. Save full name in Firebase Auth profile
+
+            let changeRequest = user.createProfileChangeRequest()
+            changeRequest.displayName = name
+
+            changeRequest.commitChanges { error in
+
+                DispatchQueue.main.async {
+
+                    isLoading = false
+
+                    if let error = error {
+
+                        alertTitle = "Compte créé"
+                        alertMessage = """
+                        Votre compte existe, mais le nom du profil \
+                        n'a pas pu être enregistré : \
+                        \(error.localizedDescription)
+                        """
+
+                    } else {
+
+                        alertTitle = "Bienvenue sur PlantDoctor !"
+                        alertMessage = "Votre compte a été créé avec succès."
+                    }
+
+                    registrationSucceeded = true
+                    showAlert = true
+                }
+            }
+        }
     }
 }
 
