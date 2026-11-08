@@ -1,0 +1,38 @@
+# macOS
+.DS_Store
+._*
+
+# Xcode
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/
+*.xccheckout
+*.moved-aside
+*.hmap
+
+# Swift Package Manager
+.swiftpm/
+
+# Firebase configuration
+GoogleService-Info.plist
+
+# Secrets and environment files
+.env
+.env.*
+!.env.example# macOS
+.DS_Store
+._*
+
+# Xcode
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/
+
+# Swift
+.swiftpm/
+
+# Secrets
+GoogleService-Info.plist
+
