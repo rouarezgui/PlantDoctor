@@ -14,11 +14,16 @@
 		AC276A81309FDC5900D925FF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC276A80309FDC5900D925FF /* LoginView.swift */; };
 		AC6FDBD130A1345200CE5E47 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6FDBD030A1345200CE5E47 /* DashboardView.swift */; };
 		AC6FDBD330A1347800CE5E47 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6FDBD230A1347800CE5E47 /* HomeView.swift */; };
-		AC6FDBD530A1349100CE5E47 /* PlantDetectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6FDBD430A1349100CE5E47 /* PlantDetectionView.swift */; };
 		AC6FDBD730A134B300CE5E47 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6FDBD630A134B200CE5E47 /* HistoryView.swift */; };
 		AC6FDBD930A134D900CE5E47 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6FDBD830A134D900CE5E47 /* ProfileView.swift */; };
 		AC6FDBDB30A1350000CE5E47 /* PlantDoctorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6FDBDA30A1350000CE5E47 /* PlantDoctorTheme.swift */; };
-		AC6FDBDD30A1383700CE5E47 /* GoogleService-Info (1).plist in Resources */ = {isa = PBXBuildFile; fileRef = AC6FDBDC30A1383700CE5E47 /* GoogleService-Info (1).plist */; };
+		AC882CC730AE2E8300FA68FF /* PlantDiseaseClassifier.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = AC882CC630AE2E8300FA68FF /* PlantDiseaseClassifier.mlpackage */; };
+		AC882CCA30AE2F9400FA68FF /* class_names.json in Resources */ = {isa = PBXBuildFile; fileRef = AC882CC930AE2F9300FA68FF /* class_names.json */; };
+		AC882CCD30AE30D500FA68FF /* CoreMLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC882CCC30AE30D500FA68FF /* CoreMLService.swift */; };
+		AC882CD030AE310F00FA68FF /* PlantDetectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC882CCF30AE310F00FA68FF /* PlantDetectionView.swift */; };
+		AC882CD230AE312300FA68FF /* DiagnosisResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC882CD130AE312300FA68FF /* DiagnosisResultView.swift */; };
+		AC882CD430AE4B6700FA68FF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC882CD330AE4B6700FA68FF /* GoogleService-Info.plist */; };
+		AC882CD630AE525800FA68FF /* DiagnosisHistoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC882CD530AE525800FA68FF /* DiagnosisHistoryService.swift */; };
 		ACBAE2F2307F89C500A24A9F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = ACBAE2F1307F89C500A24A9F /* Lottie */; };
 		ACBAE300307F8D4900A24A9F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = ACBAE2FF307F8D4900A24A9F /* FirebaseAnalytics */; };
 		ACBAE302307F8D4900A24A9F /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = ACBAE301307F8D4900A24A9F /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -81,11 +86,16 @@
 		AC276A80309FDC5900D925FF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		AC6FDBD030A1345200CE5E47 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		AC6FDBD230A1347800CE5E47 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		AC6FDBD430A1349100CE5E47 /* PlantDetectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetectionView.swift; sourceTree = "<group>"; };
 		AC6FDBD630A134B200CE5E47 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		AC6FDBD830A134D900CE5E47 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		AC6FDBDA30A1350000CE5E47 /* PlantDoctorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDoctorTheme.swift; sourceTree = "<group>"; };
-		AC6FDBDC30A1383700CE5E47 /* GoogleService-Info (1).plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info (1).plist"; sourceTree = "<group>"; };
+		AC882CC630AE2E8300FA68FF /* PlantDiseaseClassifier.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = PlantDiseaseClassifier.mlpackage; sourceTree = "<group>"; };
+		AC882CC930AE2F9300FA68FF /* class_names.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = class_names.json; sourceTree = "<group>"; };
+		AC882CCC30AE30D500FA68FF /* CoreMLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMLService.swift; sourceTree = "<group>"; };
+		AC882CCF30AE310F00FA68FF /* PlantDetectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetectionView.swift; sourceTree = "<group>"; };
+		AC882CD130AE312300FA68FF /* DiagnosisResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisResultView.swift; sourceTree = "<group>"; };
+		AC882CD330AE4B6700FA68FF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Users/azertt/Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AC882CD530AE525800FA68FF /* DiagnosisHistoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisHistoryService.swift; sourceTree = "<group>"; };
 		ACC02FE8307F8597002045A0 /* PlanDoctor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanDoctor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACC02FEB307F8597002045A0 /* PlanDoctorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDoctorApp.swift; sourceTree = "<group>"; };
 		ACC02FED307F8597002045A0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -151,6 +161,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC882CC830AE2F7100FA68FF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AC882CC930AE2F9300FA68FF /* class_names.json */,
+				AC882CC630AE2E8300FA68FF /* PlantDiseaseClassifier.mlpackage */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AC882CCB30AE30C100FA68FF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AC882CCC30AE30D500FA68FF /* CoreMLService.swift */,
+				AC882CD530AE525800FA68FF /* DiagnosisHistoryService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		AC882CCE30AE30E600FA68FF /* Diagnosis */ = {
+			isa = PBXGroup;
+			children = (
+				AC882CCF30AE310F00FA68FF /* PlantDetectionView.swift */,
+				AC882CD130AE312300FA68FF /* DiagnosisResultView.swift */,
+			);
+			path = Diagnosis;
+			sourceTree = "<group>";
+		};
 		ACC02FDF307F8597002045A0 = {
 			isa = PBXGroup;
 			children = (
@@ -174,20 +211,22 @@
 		ACC02FEA307F8597002045A0 /* PlanDoctor */ = {
 			isa = PBXGroup;
 			children = (
+				AC882CCE30AE30E600FA68FF /* Diagnosis */,
+				AC882CCB30AE30C100FA68FF /* Services */,
+				AC882CC830AE2F7100FA68FF /* Models */,
 				AC276A76309FDADF00D925FF /* LottieView.swift */,
 				AC276A7E309FDC3200D925FF /* SplashView.swift */,
 				AC276A80309FDC5900D925FF /* LoginView.swift */,
 				AC276A7C309FDBFC00D925FF /* SignupView.swift */,
 				AC6FDBD030A1345200CE5E47 /* DashboardView.swift */,
 				AC6FDBD230A1347800CE5E47 /* HomeView.swift */,
-				AC6FDBD430A1349100CE5E47 /* PlantDetectionView.swift */,
 				AC6FDBD630A134B200CE5E47 /* HistoryView.swift */,
 				AC6FDBD830A134D900CE5E47 /* ProfileView.swift */,
 				AC6FDBDA30A1350000CE5E47 /* PlantDoctorTheme.swift */,
 				AC276A74309FDA8300D925FF /* plantdoctor_animation.json */,
 				ACC02FEB307F8597002045A0 /* PlanDoctorApp.swift */,
 				ACC02FED307F8597002045A0 /* ContentView.swift */,
-				AC6FDBDC30A1383700CE5E47 /* GoogleService-Info (1).plist */,
+				AC882CD330AE4B6700FA68FF /* GoogleService-Info.plist */,
 				ACC02FEF307F859A002045A0 /* Assets.xcassets */,
 				ACC02FF1307F859A002045A0 /* Preview Content */,
 			);
@@ -359,8 +398,9 @@
 			files = (
 				ACC02FF3307F859A002045A0 /* Preview Assets.xcassets in Resources */,
 				ACC02FF0307F859A002045A0 /* Assets.xcassets in Resources */,
+				AC882CD430AE4B6700FA68FF /* GoogleService-Info.plist in Resources */,
+				AC882CCA30AE2F9400FA68FF /* class_names.json in Resources */,
 				AC276A75309FDA8400D925FF /* plantdoctor_animation.json in Resources */,
-				AC6FDBDD30A1383700CE5E47 /* GoogleService-Info (1).plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,10 +433,14 @@
 				AC6FDBD330A1347800CE5E47 /* HomeView.swift in Sources */,
 				ACC02FEC307F8597002045A0 /* PlanDoctorApp.swift in Sources */,
 				AC6FDBD730A134B300CE5E47 /* HistoryView.swift in Sources */,
+				AC882CD030AE310F00FA68FF /* PlantDetectionView.swift in Sources */,
+				AC882CC730AE2E8300FA68FF /* PlantDiseaseClassifier.mlpackage in Sources */,
+				AC882CCD30AE30D500FA68FF /* CoreMLService.swift in Sources */,
 				AC276A77309FDADF00D925FF /* LottieView.swift in Sources */,
+				AC882CD630AE525800FA68FF /* DiagnosisHistoryService.swift in Sources */,
 				AC6FDBD930A134D900CE5E47 /* ProfileView.swift in Sources */,
 				AC6FDBDB30A1350000CE5E47 /* PlantDoctorTheme.swift in Sources */,
-				AC6FDBD530A1349100CE5E47 /* PlantDetectionView.swift in Sources */,
+				AC882CD230AE312300FA68FF /* DiagnosisResultView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
