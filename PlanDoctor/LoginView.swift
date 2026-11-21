@@ -6,8 +6,12 @@
 //
 
 
+
 import SwiftUI
+import UIKit
 import FirebaseAuth
+import FirebaseCore
+import GoogleSignIn
 
 struct LoginView: View {
 
@@ -24,6 +28,7 @@ struct LoginView: View {
     // MARK: - Firebase States
 
     @State private var isLoading = false
+    @State private var isGoogleSigningIn = false
     @State private var isResettingPassword = false
     @State private var showAlert = false
     @State private var alertTitle = ""
@@ -43,23 +48,18 @@ struct LoginView: View {
     var body: some View {
 
         NavigationStack {
-
             ZStack {
-
                 backgroundView
 
                 ScrollView(showsIndicators: false) {
-
                     VStack(spacing: 25) {
 
                         Spacer(minLength: 35)
 
-                        // MARK: - Logo
+                        // MARK: Logo
 
                         VStack(spacing: 12) {
-
                             ZStack {
-
                                 RoundedRectangle(cornerRadius: 25)
                                     .fill(
                                         LinearGradient(
@@ -91,10 +91,9 @@ struct LoginView: View {
                                 .foregroundStyle(.white)
                         }
 
-                        // MARK: - Welcome Text
+                        // MARK: Welcome Text
 
                         VStack(spacing: 9) {
-
                             Text("Bienvenue sur PlantDoctor")
                                 .font(.system(size: 25, weight: .bold))
                                 .foregroundStyle(.white)
@@ -105,14 +104,13 @@ struct LoginView: View {
                                 .foregroundStyle(.white.opacity(0.75))
                         }
 
-                        // MARK: - Login Form
+                        // MARK: Login Form
 
                         VStack(spacing: 18) {
 
                             // Email
 
                             HStack(spacing: 14) {
-
                                 Image(systemName: "envelope")
                                     .foregroundStyle(.white)
                                     .font(.system(size: 20))
@@ -133,22 +131,17 @@ struct LoginView: View {
                             // Password
 
                             HStack(spacing: 14) {
-
                                 Image(systemName: "lock")
                                     .foregroundStyle(.white)
                                     .font(.system(size: 20))
 
                                 Group {
-
                                     if showPassword {
-
                                         TextField(
                                             "Mot de passe",
                                             text: $password
                                         )
-
                                     } else {
-
                                         SecureField(
                                             "Mot de passe",
                                             text: $password
@@ -162,7 +155,6 @@ struct LoginView: View {
                                 Button {
                                     showPassword.toggle()
                                 } label: {
-
                                     Image(
                                         systemName: showPassword
                                         ? "eye.slash"
@@ -176,7 +168,6 @@ struct LoginView: View {
                             // Forgot Password
 
                             HStack {
-
                                 Spacer()
 
                                 Button("Mot de passe oublié ?") {
@@ -184,24 +175,23 @@ struct LoginView: View {
                                 }
                                 .font(.system(size: 13, weight: .medium))
                                 .foregroundStyle(limeGreen)
-                                .disabled(isResettingPassword || isLoading)
+                                .disabled(
+                                    isResettingPassword ||
+                                    isLoading ||
+                                    isGoogleSigningIn
+                                )
                             }
 
-                            // Login Button
+                            // Email Login Button
 
                             Button {
                                 loginUser()
                             } label: {
-
                                 Group {
-
                                     if isLoading {
-
                                         ProgressView()
                                             .tint(.white)
-
                                     } else {
-
                                         Text("Se connecter")
                                             .font(
                                                 .system(
@@ -235,15 +225,68 @@ struct LoginView: View {
                                     y: 5
                                 )
                             }
-                            .disabled(isLoading || isResettingPassword)
+                            .disabled(
+                                isLoading ||
+                                isResettingPassword ||
+                                isGoogleSigningIn
+                            )
                             .opacity(isLoading ? 0.7 : 1)
+
+                            // Separator
+
+                            HStack {
+                                Rectangle()
+                                    .fill(.white.opacity(0.3))
+                                    .frame(height: 1)
+
+                                Text("OU")
+                                    .font(.caption.bold())
+                                    .foregroundStyle(.white.opacity(0.7))
+
+                                Rectangle()
+                                    .fill(.white.opacity(0.3))
+                                    .frame(height: 1)
+                            }
+                            .padding(.vertical, 3)
+
+                            // Google Login Button
+
+                            Button {
+                                signInWithGoogle()
+                            } label: {
+                                HStack(spacing: 12) {
+                                    if isGoogleSigningIn {
+                                        ProgressView()
+                                            .tint(.black)
+                                    } else {
+                                        Image(systemName: "g.circle.fill")
+                                            .font(.system(size: 23))
+                                    }
+
+                                    Text(
+                                        isGoogleSigningIn
+                                        ? "Connexion en cours..."
+                                        : "Continuer avec Google"
+                                    )
+                                    .font(.system(size: 16, weight: .semibold))
+                                }
+                                .foregroundStyle(.black.opacity(0.85))
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 17)
+                                .background(.white)
+                                .clipShape(Capsule())
+                            }
+                            .disabled(
+                                isLoading ||
+                                isResettingPassword ||
+                                isGoogleSigningIn
+                            )
                         }
                         .padding(22)
                         .background(.ultraThinMaterial)
                         .background(.white.opacity(0.08))
                         .clipShape(RoundedRectangle(cornerRadius: 28))
                         .overlay {
-
                             RoundedRectangle(cornerRadius: 28)
                                 .stroke(
                                     .white.opacity(0.30),
@@ -251,17 +294,15 @@ struct LoginView: View {
                                 )
                         }
 
-                        // MARK: - Signup Navigation
+                        // MARK: Signup Navigation
 
                         HStack(spacing: 6) {
-
                             Text("Vous n'avez pas de compte ?")
                                 .foregroundStyle(.white.opacity(0.85))
 
                             NavigationLink(
                                 destination: SignupView()
                             ) {
-
                                 Text("Créer un compte")
                                     .foregroundStyle(limeGreen)
                                     .fontWeight(.bold)
@@ -276,16 +317,12 @@ struct LoginView: View {
             }
             .toolbar(.hidden, for: .navigationBar)
             .alert(alertTitle, isPresented: $showAlert) {
-
                 Button("OK") {
-
                     if loginSucceeded {
                         onLoginSuccess?()
                     }
                 }
-
             } message: {
-
                 Text(alertMessage)
             }
         }
@@ -295,9 +332,7 @@ struct LoginView: View {
     // MARK: - Background
 
     private var backgroundView: some View {
-
         ZStack {
-
             LinearGradient(
                 colors: [
                     Color(red: 0.01, green: 0.08, blue: 0.04),
@@ -335,7 +370,7 @@ struct LoginView: View {
         .ignoresSafeArea()
     }
 
-    // MARK: - Login Action
+    // MARK: - Email Login
 
     private func loginUser() {
 
@@ -344,7 +379,6 @@ struct LoginView: View {
         )
 
         guard !userEmail.isEmpty, !password.isEmpty else {
-
             alertTitle = "Champs obligatoires"
             alertMessage = "Veuillez saisir votre e-mail et votre mot de passe."
             loginSucceeded = false
@@ -360,21 +394,17 @@ struct LoginView: View {
         ) { result, error in
 
             DispatchQueue.main.async {
-
                 isLoading = false
 
                 if let error = error {
-
                     alertTitle = "Échec de connexion"
                     alertMessage = error.localizedDescription
                     loginSucceeded = false
                     showAlert = true
-
                     return
                 }
 
                 guard result?.user != nil else {
-
                     alertTitle = "Erreur"
                     alertMessage = "Impossible de récupérer votre compte."
                     loginSucceeded = false
@@ -390,6 +420,126 @@ struct LoginView: View {
         }
     }
 
+    // MARK: - Google Sign In
+
+    private func signInWithGoogle() {
+
+        guard let clientID = FirebaseApp.app()?.options.clientID else {
+            showError(
+                title: "Configuration incorrecte",
+                message: "Le Client ID Firebase est introuvable."
+            )
+            return
+        }
+
+        guard let presentingViewController = getRootViewController() else {
+            showError(
+                title: "Erreur",
+                message: "Impossible d'ouvrir la fenêtre Google."
+            )
+            return
+        }
+
+        GIDSignIn.sharedInstance.configuration = GIDConfiguration(
+            clientID: clientID
+        )
+
+        isGoogleSigningIn = true
+
+        GIDSignIn.sharedInstance.signIn(
+            withPresenting: presentingViewController
+        ) { signInResult, error in
+
+            if let error = error {
+                DispatchQueue.main.async {
+                    isGoogleSigningIn = false
+
+                    // L'utilisateur peut avoir annulé la fenêtre Google.
+                    if (error as NSError).code == -5 {
+                        return
+                    }
+
+                    showError(
+                        title: "Connexion Google échouée",
+                        message: error.localizedDescription
+                    )
+                }
+                return
+            }
+
+            guard
+                let user = signInResult?.user,
+                let idToken = user.idToken?.tokenString
+            else {
+                DispatchQueue.main.async {
+                    isGoogleSigningIn = false
+                    showError(
+                        title: "Erreur Google",
+                        message: "Impossible de récupérer le token Google."
+                    )
+                }
+                return
+            }
+
+            let accessToken = user.accessToken.tokenString
+
+            let credential = GoogleAuthProvider.credential(
+                withIDToken: idToken,
+                accessToken: accessToken
+            )
+
+            Auth.auth().signIn(with: credential) { result, error in
+
+                DispatchQueue.main.async {
+                    isGoogleSigningIn = false
+
+                    if let error = error {
+                        showError(
+                            title: "Erreur Firebase",
+                            message: error.localizedDescription
+                        )
+                        return
+                    }
+
+                    guard result?.user != nil else {
+                        showError(
+                            title: "Erreur",
+                            message: "Impossible de récupérer votre compte."
+                        )
+                        return
+                    }
+
+                    alertTitle = "Connexion réussie"
+                    alertMessage = "Bienvenue sur PlantDoctor avec Google ! 🌱"
+                    loginSucceeded = true
+                    showAlert = true
+                }
+            }
+        }
+    }
+
+    // MARK: - Get Root View Controller
+
+    private func getRootViewController() -> UIViewController? {
+
+        let scenes = UIApplication.shared.connectedScenes
+        let windowScene = scenes.first as? UIWindowScene
+
+        return windowScene?
+            .windows
+            .first(where: { $0.isKeyWindow })?
+            .rootViewController
+    }
+
+    // MARK: - Error Helper
+
+    private func showError(title: String, message: String) {
+        alertTitle = title
+        alertMessage = message
+        loginSucceeded = false
+        showAlert = true
+    }
+
     // MARK: - Password Reset
 
     private func resetPassword() {
@@ -399,7 +549,6 @@ struct LoginView: View {
         )
 
         guard !userEmail.isEmpty else {
-
             alertTitle = "Adresse e-mail requise"
             alertMessage = "Saisissez votre adresse e-mail pour recevoir le lien de réinitialisation."
             loginSucceeded = false
@@ -409,21 +558,15 @@ struct LoginView: View {
 
         isResettingPassword = true
 
-        Auth.auth().sendPasswordReset(
-            withEmail: userEmail
-        ) { error in
+        Auth.auth().sendPasswordReset(withEmail: userEmail) { error in
 
             DispatchQueue.main.async {
-
                 isResettingPassword = false
 
                 if let error = error {
-
                     alertTitle = "Erreur"
                     alertMessage = error.localizedDescription
-
                 } else {
-
                     alertTitle = "E-mail envoyé"
                     alertMessage = "Consultez votre boîte e-mail pour réinitialiser votre mot de passe."
                 }
@@ -440,14 +583,12 @@ struct LoginView: View {
 private extension View {
 
     func glassFieldStyle() -> some View {
-
         self
             .padding(.horizontal, 18)
             .frame(height: 60)
             .background(.white.opacity(0.13))
             .clipShape(Capsule())
             .overlay {
-
                 Capsule()
                     .stroke(
                         .white.opacity(0.22),

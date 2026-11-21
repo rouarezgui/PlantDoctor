@@ -59,6 +59,8 @@
 		ACC02FFD307F859A002045A0 /* PlanDoctorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC02FFC307F859A002045A0 /* PlanDoctorTests.swift */; };
 		ACC03007307F859B002045A0 /* PlanDoctorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC03006307F859B002045A0 /* PlanDoctorUITests.swift */; };
 		ACC03009307F859B002045A0 /* PlanDoctorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC03008307F859B002045A0 /* PlanDoctorUITestsLaunchTests.swift */; };
+		ACFE604730B251BD0033D562 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = ACFE604630B251BD0033D562 /* GoogleSignIn */; };
+		ACFE604930B251BD0033D562 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ACFE604830B251BD0033D562 /* GoogleSignInSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +108,7 @@
 		ACC03002307F859B002045A0 /* PlanDoctorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlanDoctorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACC03006307F859B002045A0 /* PlanDoctorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDoctorUITests.swift; sourceTree = "<group>"; };
 		ACC03008307F859B002045A0 /* PlanDoctorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDoctorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		ACFE604A30B254000033D562 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,11 +125,13 @@
 				ACBAE31A307F8D4900A24A9F /* FirebaseFirestoreCombine-Community in Frameworks */,
 				ACBAE304307F8D4900A24A9F /* FirebaseAnalyticsSwift in Frameworks */,
 				ACBAE328307F8D4900A24A9F /* FirebaseMLModelDownloader in Frameworks */,
+				ACFE604730B251BD0033D562 /* GoogleSignIn in Frameworks */,
 				ACBAE306307F8D4900A24A9F /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				ACBAE300307F8D4900A24A9F /* FirebaseAnalytics in Frameworks */,
 				ACBAE31C307F8D4900A24A9F /* FirebaseFirestoreSwift in Frameworks */,
 				ACBAE302307F8D4900A24A9F /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				ACBAE308307F8D4900A24A9F /* FirebaseAppCheck in Frameworks */,
+				ACFE604930B251BD0033D562 /* GoogleSignInSwift in Frameworks */,
 				ACBAE32C307F8D4900A24A9F /* FirebasePerformance in Frameworks */,
 				ACBAE322307F8D4900A24A9F /* FirebaseInAppMessaging-Beta in Frameworks */,
 				ACBAE320307F8D4900A24A9F /* FirebaseFunctionsCombine-Community in Frameworks */,
@@ -211,6 +216,7 @@
 		ACC02FEA307F8597002045A0 /* PlanDoctor */ = {
 			isa = PBXGroup;
 			children = (
+				ACFE604A30B254000033D562 /* Info.plist */,
 				AC882CCE30AE30E600FA68FF /* Diagnosis */,
 				AC882CCB30AE30C100FA68FF /* Services */,
 				AC882CC830AE2F7100FA68FF /* Models */,
@@ -303,6 +309,8 @@
 				ACBAE32F307F8D4900A24A9F /* FirebaseRemoteConfigSwift */,
 				ACBAE331307F8D4900A24A9F /* FirebaseStorage */,
 				ACBAE333307F8D4900A24A9F /* FirebaseStorageCombine-Community */,
+				ACFE604630B251BD0033D562 /* GoogleSignIn */,
+				ACFE604830B251BD0033D562 /* GoogleSignInSwift */,
 			);
 			productName = PlanDoctor;
 			productReference = ACC02FE8307F8597002045A0 /* PlanDoctor.app */;
@@ -379,6 +387,7 @@
 			packageReferences = (
 				ACBAE2F0307F89C500A24A9F /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				ACBAE2FE307F8D4800A24A9F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				ACFE604530B251BD0033D562 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = ACC02FE9307F8597002045A0 /* Products */;
 			projectDirPath = "";
@@ -606,6 +615,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"PlanDoctor/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PlanDoctor/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -634,6 +644,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"PlanDoctor/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PlanDoctor/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -782,6 +793,14 @@
 				version = 10.22.0;
 			};
 		};
+		ACFE604530B251BD0033D562 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -924,6 +943,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = ACBAE2FE307F8D4800A24A9F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		ACFE604630B251BD0033D562 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ACFE604530B251BD0033D562 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		ACFE604830B251BD0033D562 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ACFE604530B251BD0033D562 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
