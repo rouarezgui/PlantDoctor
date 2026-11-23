@@ -1,4 +1,24 @@
+# Xcode
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/
+*.xccheckout
+*.moved-aside
+*.hmap
+
 # macOS
+.DS_Store
+
+# Firebase configuration
+GoogleService-Info.plist
+
+# Secrets and credentials
+.env
+.env.*
+*.p8
+*.p12
+*.mobileprovision# macOS
 .DS_Store
 ._*
 

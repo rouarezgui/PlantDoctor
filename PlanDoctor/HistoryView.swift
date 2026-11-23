@@ -5,7 +5,6 @@
 //  Created by azertt on 8/11/2026.
 //
 
-
 import SwiftUI
 import FirebaseAuth
 import FirebaseFirestore
@@ -16,17 +15,30 @@ struct HistoryView: View {
     @State private var isLoading = true
     @State private var errorMessage: String?
 
+    @AppStorage("selectedAppLanguage")
+    private var selectedLanguage = "fr"
+
     private let db = Firestore.firestore()
 
     var body: some View {
+
         NavigationStack {
+
             Group {
+
+                // MARK: - Loading State
+
                 if isLoading {
-                    ProgressView("Chargement de votre historique...")
+
+                    ProgressView("history.loading")
                         .tint(PlantDoctorTheme.green)
 
                 } else if let errorMessage {
+
+                    // MARK: - Error State
+
                     VStack(spacing: 12) {
+
                         Image(systemName: "exclamationmark.triangle")
                             .font(.largeTitle)
                             .foregroundStyle(.orange)
@@ -35,7 +47,7 @@ struct HistoryView: View {
                             .multilineTextAlignment(.center)
                             .foregroundStyle(PlantDoctorTheme.secondary)
 
-                        Button("Réessayer") {
+                        Button("history.retry") {
                             loadHistory()
                         }
                         .foregroundStyle(PlantDoctorTheme.green)
@@ -43,11 +55,19 @@ struct HistoryView: View {
                     .padding()
 
                 } else if analyses.isEmpty {
+
+                    // MARK: - Empty State
+
                     emptyState
 
                 } else {
+
+                    // MARK: - Analysis List
+
                     List {
+
                         ForEach(analyses) { analysis in
+
                             analysisRow(analysis)
                                 .listRowBackground(
                                     PlantDoctorTheme.background
@@ -59,42 +79,52 @@ struct HistoryView: View {
                 }
             }
             .background(PlantDoctorTheme.background)
-            .navigationTitle("Historique")
+            .navigationTitle("history.title")
             .navigationBarTitleDisplayMode(.inline)
+
+            // MARK: - Refresh Button
+
             .toolbar {
+
                 ToolbarItem(placement: .topBarTrailing) {
+
                     Button {
                         loadHistory()
                     } label: {
+
                         Image(systemName: "arrow.clockwise")
                             .foregroundStyle(PlantDoctorTheme.green)
                     }
+                    .accessibilityLabel("history.refresh")
                 }
             }
+
             .onAppear {
                 loadHistory()
             }
         }
     }
 
-    // MARK: Empty State
+    // MARK: - Empty State
 
     private var emptyState: some View {
+
         VStack(spacing: 18) {
+
             Image(systemName: "clock.arrow.circlepath")
                 .font(.system(size: 65))
                 .foregroundStyle(PlantDoctorTheme.green)
 
-            Text("Votre historique")
+            Text("history.empty_title")
                 .font(.title2.bold())
                 .foregroundStyle(PlantDoctorTheme.text)
 
-            Text("Vous n'avez pas encore effectué de diagnostic.")
+            Text("history.empty_description")
                 .font(.subheadline)
                 .foregroundStyle(PlantDoctorTheme.secondary)
                 .multilineTextAlignment(.center)
 
-            Text("Vos prochaines analyses apparaîtront ici.")
+            Text("history.empty_hint")
                 .font(.caption)
                 .foregroundStyle(PlantDoctorTheme.secondary)
         }
@@ -102,9 +132,10 @@ struct HistoryView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
-    // MARK: Analysis Row
+    // MARK: - Analysis Row
 
     private func analysisRow(_ analysis: DiagnosisRecord) -> some View {
+
         HStack(spacing: 14) {
 
             Image(
@@ -123,16 +154,17 @@ struct HistoryView: View {
                     .font(.headline)
                     .foregroundStyle(PlantDoctorTheme.text)
 
-                Text(analysis.isHealthy ? "Plante saine" : "Maladie détectée")
-                    .font(.caption)
-                    .foregroundStyle(PlantDoctorTheme.secondary)
-
-                Text(analysis.createdAt.formatted(
-                    date: .abbreviated,
-                    time: .shortened
-                ))
-                .font(.caption2)
+                Text(
+                    analysis.isHealthy
+                    ? "history.healthy"
+                    : "history.disease_detected"
+                )
+                .font(.caption)
                 .foregroundStyle(PlantDoctorTheme.secondary)
+
+                Text(formattedDate(analysis.createdAt))
+                    .font(.caption2)
+                    .foregroundStyle(PlantDoctorTheme.secondary)
             }
 
             Spacer()
@@ -146,12 +178,30 @@ struct HistoryView: View {
         .padding(.vertical, 8)
     }
 
-    // MARK: Load History
+    // MARK: - Format Date According to Selected Language
+
+    private func formattedDate(_ date: Date) -> String {
+
+        let formatter = DateFormatter()
+
+        formatter.locale = Locale(identifier: selectedLanguage)
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+
+        return formatter.string(from: date)
+    }
+
+    // MARK: - Load History from Firestore
 
     private func loadHistory() {
 
         guard let userId = Auth.auth().currentUser?.uid else {
-            errorMessage = "Veuillez vous connecter pour consulter votre historique."
+
+            errorMessage = NSLocalizedString(
+                "history.login_required",
+                comment: ""
+            )
+
             isLoading = false
             return
         }
@@ -168,11 +218,21 @@ struct HistoryView: View {
                 isLoading = false
 
                 if let error {
-                    errorMessage = error.localizedDescription
+
+                    print(
+                        "History loading error: \(error.localizedDescription)"
+                    )
+
+                    errorMessage = NSLocalizedString(
+                        "history.load_error",
+                        comment: ""
+                    )
+
                     return
                 }
 
                 guard let documents = snapshot?.documents else {
+
                     analyses = []
                     return
                 }
@@ -201,9 +261,10 @@ struct HistoryView: View {
             }
     }
 
-    // MARK: Format Class Name
+    // MARK: - Format Class Name
 
     private func formattedName(_ name: String) -> String {
+
         name
             .replacingOccurrences(of: "___", with: " - ")
             .replacingOccurrences(of: "_", with: " ")

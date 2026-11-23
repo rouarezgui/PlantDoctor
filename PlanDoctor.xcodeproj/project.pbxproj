@@ -24,6 +24,12 @@
 		AC882CD230AE312300FA68FF /* DiagnosisResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC882CD130AE312300FA68FF /* DiagnosisResultView.swift */; };
 		AC882CD430AE4B6700FA68FF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC882CD330AE4B6700FA68FF /* GoogleService-Info.plist */; };
 		AC882CD630AE525800FA68FF /* DiagnosisHistoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC882CD530AE525800FA68FF /* DiagnosisHistoryService.swift */; };
+		ACA8FD5830B4D28200ADDB52 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = ACA8FD5730B4D28200ADDB52 /* GoogleMobileAds */; };
+		ACA8FD5A30B4D86700ADDB52 /* BannerAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA8FD5930B4D86700ADDB52 /* BannerAdView.swift */; };
+		ACA8FD5E30B4DF9E00ADDB52 /* InterstitialAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA8FD5D30B4DF9E00ADDB52 /* InterstitialAdManager.swift */; };
+		ACB429F630B4A20B00BD200C /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB429F530B4A20B00BD200C /* WeatherService.swift */; };
+		ACB429F830B4A5B900BD200C /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB429F730B4A5B900BD200C /* LocationService.swift */; };
+		ACB429FA30B4B7D400BD200C /* CameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB429F930B4B7D400BD200C /* CameraPicker.swift */; };
 		ACBAE2F2307F89C500A24A9F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = ACBAE2F1307F89C500A24A9F /* Lottie */; };
 		ACBAE300307F8D4900A24A9F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = ACBAE2FF307F8D4900A24A9F /* FirebaseAnalytics */; };
 		ACBAE302307F8D4900A24A9F /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = ACBAE301307F8D4900A24A9F /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -61,6 +67,8 @@
 		ACC03009307F859B002045A0 /* PlanDoctorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC03008307F859B002045A0 /* PlanDoctorUITestsLaunchTests.swift */; };
 		ACFE604730B251BD0033D562 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = ACFE604630B251BD0033D562 /* GoogleSignIn */; };
 		ACFE604930B251BD0033D562 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ACFE604830B251BD0033D562 /* GoogleSignInSwift */; };
+		ACFE604C30B259EF0033D562 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFE604B30B259EF0033D562 /* SettingsView.swift */; };
+		ACFE604F30B262DB0033D562 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ACFE604D30B262DB0033D562 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +106,11 @@
 		AC882CD130AE312300FA68FF /* DiagnosisResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisResultView.swift; sourceTree = "<group>"; };
 		AC882CD330AE4B6700FA68FF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Users/azertt/Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AC882CD530AE525800FA68FF /* DiagnosisHistoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisHistoryService.swift; sourceTree = "<group>"; };
+		ACA8FD5930B4D86700ADDB52 /* BannerAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdView.swift; sourceTree = "<group>"; };
+		ACA8FD5D30B4DF9E00ADDB52 /* InterstitialAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialAdManager.swift; sourceTree = "<group>"; };
+		ACB429F530B4A20B00BD200C /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		ACB429F730B4A5B900BD200C /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		ACB429F930B4B7D400BD200C /* CameraPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPicker.swift; sourceTree = "<group>"; };
 		ACC02FE8307F8597002045A0 /* PlanDoctor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanDoctor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACC02FEB307F8597002045A0 /* PlanDoctorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDoctorApp.swift; sourceTree = "<group>"; };
 		ACC02FED307F8597002045A0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -109,6 +122,9 @@
 		ACC03006307F859B002045A0 /* PlanDoctorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDoctorUITests.swift; sourceTree = "<group>"; };
 		ACC03008307F859B002045A0 /* PlanDoctorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDoctorUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		ACFE604A30B254000033D562 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		ACFE604B30B259EF0033D562 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		ACFE604E30B262DB0033D562 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ACFE605030B266C10033D562 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +158,7 @@
 				ACBAE312307F8D4900A24A9F /* FirebaseDatabase in Frameworks */,
 				ACBAE334307F8D4900A24A9F /* FirebaseStorageCombine-Community in Frameworks */,
 				ACBAE2F2307F89C500A24A9F /* Lottie in Frameworks */,
+				ACA8FD5830B4D28200ADDB52 /* GoogleMobileAds in Frameworks */,
 				ACBAE30C307F8D4900A24A9F /* FirebaseAuth in Frameworks */,
 				ACBAE316307F8D4900A24A9F /* FirebaseDynamicLinks in Frameworks */,
 				ACBAE318307F8D4900A24A9F /* FirebaseFirestore in Frameworks */,
@@ -178,6 +195,9 @@
 		AC882CCB30AE30C100FA68FF /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				ACB429F730B4A5B900BD200C /* LocationService.swift */,
+				ACB429F530B4A20B00BD200C /* WeatherService.swift */,
+				ACA8FD5D30B4DF9E00ADDB52 /* InterstitialAdManager.swift */,
 				AC882CCC30AE30D500FA68FF /* CoreMLService.swift */,
 				AC882CD530AE525800FA68FF /* DiagnosisHistoryService.swift */,
 			);
@@ -191,6 +211,35 @@
 				AC882CD130AE312300FA68FF /* DiagnosisResultView.swift */,
 			);
 			path = Diagnosis;
+			sourceTree = "<group>";
+		};
+		ACA8FD5F30B4ED3B00ADDB52 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				ACC02FED307F8597002045A0 /* ContentView.swift */,
+				AC6FDBD030A1345200CE5E47 /* DashboardView.swift */,
+				ACC02FEB307F8597002045A0 /* PlanDoctorApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		ACA8FD6030B4EDB900ADDB52 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				AC276A76309FDADF00D925FF /* LottieView.swift */,
+				ACA8FD5930B4D86700ADDB52 /* BannerAdView.swift */,
+				ACB429F930B4B7D400BD200C /* CameraPicker.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		ACB429F330B4951800BD200C /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				AC276A80309FDC5900D925FF /* LoginView.swift */,
+				AC276A7C309FDBFC00D925FF /* SignupView.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		ACC02FDF307F8597002045A0 = {
@@ -216,22 +265,21 @@
 		ACC02FEA307F8597002045A0 /* PlanDoctor */ = {
 			isa = PBXGroup;
 			children = (
+				ACA8FD6030B4EDB900ADDB52 /* Components */,
+				ACA8FD5F30B4ED3B00ADDB52 /* App */,
+				ACB429F330B4951800BD200C /* Authentication */,
+				ACFE604D30B262DB0033D562 /* Localizable.strings */,
 				ACFE604A30B254000033D562 /* Info.plist */,
 				AC882CCE30AE30E600FA68FF /* Diagnosis */,
 				AC882CCB30AE30C100FA68FF /* Services */,
 				AC882CC830AE2F7100FA68FF /* Models */,
-				AC276A76309FDADF00D925FF /* LottieView.swift */,
 				AC276A7E309FDC3200D925FF /* SplashView.swift */,
-				AC276A80309FDC5900D925FF /* LoginView.swift */,
-				AC276A7C309FDBFC00D925FF /* SignupView.swift */,
-				AC6FDBD030A1345200CE5E47 /* DashboardView.swift */,
 				AC6FDBD230A1347800CE5E47 /* HomeView.swift */,
 				AC6FDBD630A134B200CE5E47 /* HistoryView.swift */,
 				AC6FDBD830A134D900CE5E47 /* ProfileView.swift */,
 				AC6FDBDA30A1350000CE5E47 /* PlantDoctorTheme.swift */,
+				ACFE604B30B259EF0033D562 /* SettingsView.swift */,
 				AC276A74309FDA8300D925FF /* plantdoctor_animation.json */,
-				ACC02FEB307F8597002045A0 /* PlanDoctorApp.swift */,
-				ACC02FED307F8597002045A0 /* ContentView.swift */,
 				AC882CD330AE4B6700FA68FF /* GoogleService-Info.plist */,
 				ACC02FEF307F859A002045A0 /* Assets.xcassets */,
 				ACC02FF1307F859A002045A0 /* Preview Content */,
@@ -311,6 +359,7 @@
 				ACBAE333307F8D4900A24A9F /* FirebaseStorageCombine-Community */,
 				ACFE604630B251BD0033D562 /* GoogleSignIn */,
 				ACFE604830B251BD0033D562 /* GoogleSignInSwift */,
+				ACA8FD5730B4D28200ADDB52 /* GoogleMobileAds */,
 			);
 			productName = PlanDoctor;
 			productReference = ACC02FE8307F8597002045A0 /* PlanDoctor.app */;
@@ -382,12 +431,14 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = ACC02FDF307F8597002045A0;
 			packageReferences = (
 				ACBAE2F0307F89C500A24A9F /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				ACBAE2FE307F8D4800A24A9F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				ACFE604530B251BD0033D562 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				ACA8FD5630B4D28200ADDB52 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			productRefGroup = ACC02FE9307F8597002045A0 /* Products */;
 			projectDirPath = "";
@@ -406,6 +457,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACC02FF3307F859A002045A0 /* Preview Assets.xcassets in Resources */,
+				ACFE604F30B262DB0033D562 /* Localizable.strings in Resources */,
 				ACC02FF0307F859A002045A0 /* Assets.xcassets in Resources */,
 				AC882CD430AE4B6700FA68FF /* GoogleService-Info.plist in Resources */,
 				AC882CCA30AE2F9400FA68FF /* class_names.json in Resources */,
@@ -437,12 +489,18 @@
 				AC276A81309FDC5900D925FF /* LoginView.swift in Sources */,
 				AC276A7D309FDBFC00D925FF /* SignupView.swift in Sources */,
 				ACC02FEE307F8597002045A0 /* ContentView.swift in Sources */,
+				ACA8FD5A30B4D86700ADDB52 /* BannerAdView.swift in Sources */,
 				AC6FDBD130A1345200CE5E47 /* DashboardView.swift in Sources */,
 				AC276A7F309FDC3200D925FF /* SplashView.swift in Sources */,
+				ACFE604C30B259EF0033D562 /* SettingsView.swift in Sources */,
+				ACB429F830B4A5B900BD200C /* LocationService.swift in Sources */,
+				ACA8FD5E30B4DF9E00ADDB52 /* InterstitialAdManager.swift in Sources */,
 				AC6FDBD330A1347800CE5E47 /* HomeView.swift in Sources */,
+				ACB429FA30B4B7D400BD200C /* CameraPicker.swift in Sources */,
 				ACC02FEC307F8597002045A0 /* PlanDoctorApp.swift in Sources */,
 				AC6FDBD730A134B300CE5E47 /* HistoryView.swift in Sources */,
 				AC882CD030AE310F00FA68FF /* PlantDetectionView.swift in Sources */,
+				ACB429F630B4A20B00BD200C /* WeatherService.swift in Sources */,
 				AC882CC730AE2E8300FA68FF /* PlantDiseaseClassifier.mlpackage in Sources */,
 				AC882CCD30AE30D500FA68FF /* CoreMLService.swift in Sources */,
 				AC276A77309FDADF00D925FF /* LottieView.swift in Sources */,
@@ -485,12 +543,25 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		ACFE604D30B262DB0033D562 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACFE604E30B262DB0033D562 /* en */,
+				ACFE605030B266C10033D562 /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		ACC0300A307F859B002045A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -554,6 +625,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -616,6 +688,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PlanDoctor/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "PlantDoctor a besoin d'accéder à votre caméra pour photographier les plantes et détecter leurs maladies.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "PlantDoctor utilise votre position pour afficher les conditions météorologiques locales et vous proposer des conseils adaptés à vos plantes.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -645,6 +719,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PlanDoctor/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "PlantDoctor a besoin d'accéder à votre caméra pour photographier les plantes et détecter leurs maladies.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "PlantDoctor utilise votre position pour afficher les conditions météorologiques locales et vous proposer des conseils adaptés à vos plantes.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -777,6 +853,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		ACA8FD5630B4D28200ADDB52 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = exactVersion;
+				version = 11.13.0;
+			};
+		};
 		ACBAE2F0307F89C500A24A9F /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
@@ -804,6 +888,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		ACA8FD5730B4D28200ADDB52 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ACA8FD5630B4D28200ADDB52 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
 		ACBAE2F1307F89C500A24A9F /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = ACBAE2F0307F89C500A24A9F /* XCRemoteSwiftPackageReference "lottie-ios" */;

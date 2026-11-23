@@ -1,0 +1,232 @@
+
+/*
+  Localizable.strings
+  PlanDoctor
+  Created by azertt on 22/11/2026.
+*/
+/*login */
+"login.welcome" = "Welcome to PlantDoctor";
+"login.subtitle" = "Sign in to your account";
+"login.email_placeholder" = "Email address";
+"login.password_placeholder" = "Password";
+"login.forgot_password" = "Forgot password?";
+"login.sign_in" = "Sign In";
+"login.or" = "OR";
+"login.google" = "Continue with Google";
+"login.google_loading" = "Signing in...";
+"login.no_account" = "Don't have an account?";
+"login.create_account" = "Create an account";
+
+"login.required_title" = "Required fields";
+"login.required_message" = "Please enter your email address and password.";
+"login.invalid_email_title" = "Invalid email address";
+"login.invalid_email_message" = "Please enter a valid email address.";
+"login.failed_title" = "Sign-in failed";
+"login.account_retrieval_error" = "Unable to retrieve your account.";
+"login.success_title" = "Sign-in successful";
+"login.success_message" = "Welcome to PlantDoctor! 🌱";
+"login.google_success_message" = "Welcome to PlantDoctor with Google! 🌱";
+
+"login.configuration_error" = "Configuration error";
+"login.client_id_missing" = "Firebase Client ID could not be found.";
+"login.google_window_error" = "Unable to open the Google sign-in window.";
+"login.google_failed" = "Google sign-in failed";
+"login.google_error" = "Google error";
+"login.google_token_error" = "Unable to retrieve the Google token.";
+"login.firebase_error" = "Firebase error";
+
+"login.reset_email_required_title" = "Email address required";
+"login.reset_email_required_message" = "Enter your email address to receive the password reset link.";
+"login.reset_success_title" = "Email sent";
+"login.reset_success_message" = "Check your inbox to reset your password.";
+
+"common.error" = "Error";
+"common.ok" = "OK";
+
+
+/*signup*/
+
+"signup.back_to_login" = "Sign In";
+"signup.title" = "Create an Account";
+"signup.subtitle" = "Join PlantDoctor and take care of your plants 🌱";
+"signup.name_placeholder" = "Full name";
+"signup.email_placeholder" = "Email address";
+"signup.password_placeholder" = "Password";
+"signup.confirm_password" = "Confirm password";
+"signup.create_button" = "Create my account";
+"signup.already_account" = "Already have an account?";
+"signup.sign_in" = "Sign In";
+
+"signup.required_title" = "Required fields";
+"signup.required_message" = "Please fill in all fields.";
+"signup.invalid_email_title" = "Invalid email address";
+"signup.invalid_email_message" = "Please enter a valid email address.";
+"signup.password_mismatch_title" = "Password mismatch";
+"signup.password_mismatch_message" = "The two passwords do not match.";
+"signup.password_short_title" = "Password too short";
+"signup.password_short_message" = "The password must contain at least 6 characters.";
+"signup.registration_error" = "Registration error";
+"signup.account_creation_error" = "Unable to retrieve the created account.";
+"signup.account_created" = "Account created";
+"signup.profile_name_error" = "Your account was created, but the profile name could not be saved.";
+"signup.welcome_title" = "Welcome to PlantDoctor!";
+"signup.success_message" = "Your account was created successfully.";
+"common.error" = "Error";
+"common.ok" = "OK";
+
+
+// MARK: - Home
+"home.greeting %@" = "Hello, %@ 👋";
+"home.subtitle" = "Take care of your garden today.";
+"home.brand" = "PLANTDOCTOR";
+"home.banner_title" = "Your garden deserves the best care 🌿";
+"home.banner_description" = "Monitor your plants' health and detect diseases using artificial intelligence.";
+"home.analyze" = "Analyze a plant";
+"home.explore" = "Explore PlantDoctor";
+"home.smart_diagnosis" = "Smart diagnosis";
+"home.smart_diagnosis_description" = "Identify diseases in your plants.";
+"home.history" = "Analysis history";
+"home.history_description" = "View your previous diagnoses.";
+"home.greeting" = "Hello,";
+"home.default_name" = "Gardener";
+
+/*meteo*/
+
+"weather.title" = "Your garden weather";
+"weather.city" = "Sousse";
+"weather.loading" = "Loading weather...";
+"weather.refresh" = "Refresh weather";
+"weather.error" = "Unable to retrieve weather data.";
+"weather.retry" = "Try again";
+"weather.no_data" = "No weather data available.";
+"weather.plant_advice" = "Plant care advice";
+
+"weather.condition.clear" = "Sunny";
+"weather.condition.partly_cloudy" = "Partly cloudy";
+"weather.condition.cloudy" = "Cloudy";
+"weather.condition.fog" = "Fog";
+"weather.condition.drizzle" = "Drizzle";
+"weather.condition.rain" = "Rain";
+"weather.condition.snow" = "Snow";
+"weather.condition.showers" = "Showers";
+"weather.condition.storm" = "Thunderstorm";
+"weather.condition.unknown" = "Unknown conditions";
+
+"weather.advice.storm" = "Protect your plants from severe weather and avoid gardening during thunderstorms.";
+"weather.advice.rain" = "Rain may reduce watering needs. Check that the soil does not remain too wet.";
+"weather.advice.hot" = "Temperatures are high. Monitor soil moisture and water appropriately.";
+"weather.advice.dry" = "The air is dry. Monitor your plants and check soil moisture regularly.";
+"weather.advice.humid" = "Humidity is high. Watch for fungal diseases on leaves.";
+"weather.advice.normal" = "Conditions seem moderate. Continue monitoring your plants.";
+"weather.city_loading" = "Locating...";
+"weather.city_unknown" = "Unknown city";
+"location.services_disabled" = "Location services are disabled.";
+"location.permission_denied" = "Allow location access in Settings.";
+"location.unknown_error" = "Unable to retrieve your location.";
+
+/*location*/
+"location.permission_denied" = "Location is disabled. Choose a city manually or enable location in Settings.";
+"location.unknown_error" = "Unable to retrieve your location.";
+"location.current" = "My current location";
+"location.choose_city" = "Choose a city";
+
+// MARK: - Tabs
+"tab.home" = "Home";
+"tab.diagnosis" = "Diagnosis";
+"tab.history" = "History";
+"tab.profile" = "Profile";
+"tab.settings" = "Settings";
+
+// MARK: - Settings
+"settings.appearance" = "Appearance";
+"settings.theme" = "Theme";
+"settings.selected_theme" = "Selected theme";
+"settings.language" = "Language";
+"settings.about" = "About";
+"settings.version" = "Version";
+
+// MARK: - Theme
+"theme.system" = "System";
+"theme.light" = "Light";
+"theme.dark" = "Dark";
+
+// MARK: - Language
+"language.french" = "French";
+"language.english" = "English";
+
+// MARK: - Diagnosis
+"diagnosis.title" = "Plant Diagnosis";
+"diagnosis.subtitle" = "Upload a photo of your leaf to detect a disease.";
+"diagnosis.no_image" = "No image selected";
+"diagnosis.choose_photo" = "Choose a photo";
+"diagnosis.analyzing" = "Analyzing...";
+"diagnosis.start" = "Start Diagnosis";
+"diagnosis.description" = "The analysis is performed directly on your device using artificial intelligence.";
+"diagnosis.save_error_title" = "Unable to save";
+"diagnosis.save_error_message" = "The diagnosis was successful, but it could not be saved to your history.";
+"diagnosis.take_photo" = "Take a photo";
+"diagnosis.camera_unavailable" = "The camera is not available on this device.";
+
+// MARK: - Common
+"common.error" = "Error";
+"common.ok" = "OK";
+"common.unknown_error" = "An error occurred.";
+
+/* Diagnosis */
+"diagnosis.header" = "Plant Diagnosis";
+"diagnosis.subtitle" = "Upload a photo of your leaf to detect a disease.";
+"diagnosis.no_image" = "No image selected";
+"diagnosis.choose_photo" = "Choose a photo";
+"diagnosis.analyzing" = "Analyzing...";
+"diagnosis.start" = "Start Diagnosis";
+"diagnosis.description" = "The analysis is performed directly on your device using artificial intelligence.";
+"diagnosis.title" = "Diagnosis";
+"diagnosis.model_error" = "Unable to load the Core ML model.";
+"diagnosis.save_error_title" = "Unable to save";
+"diagnosis.save_error_message" = "The diagnosis was successful, but it could not be saved to your history.";
+
+/* Results */
+
+"result.title" = "Diagnosis Result";
+"result.healthy" = "Healthy plant";
+"result.disease_detected" = "Disease detected";
+"result.prediction_score" = "Prediction Score";
+"result.model_confidence" = "Model Confidence";
+"result.disclaimer" = "This result is an automatic prediction generated by the AI model. It is provided as an indication and does not replace the advice of a plant specialist.";
+"common.close" = "Close";
+
+
+/* Common */
+"common.error" = "Error";
+"common.ok" = "OK";
+"common.close" = "Close";
+"common.unknown_error" = "An error occurred.";
+
+/*Profile*/
+"profile.title" = "My Profile";
+"profile.account" = "Account Information";
+"profile.email" = "Email Address";
+"profile.uid" = "User ID";
+"profile.logout" = "Log Out";
+"profile.logout_title" = "Log Out";
+"profile.logout_confirmation" = "Are you sure you want to log out?";
+"profile.cancel" = "Cancel";
+"profile.default_name" = "PlantDoctor User";
+"profile.no_email" = "No email";
+"profile.unavailable" = "Not available";
+
+/*history*/
+
+"history.title" = "History";
+"history.loading" = "Loading your history...";
+"history.retry" = "Try Again";
+"history.refresh" = "Refresh";
+"history.empty_title" = "Your History";
+"history.empty_description" = "You haven't performed any diagnosis yet.";
+"history.empty_hint" = "Your future analyses will appear here.";
+"history.healthy" = "Healthy plant";
+"history.disease_detected" = "Disease detected";
+"history.login_required" = "Please sign in to view your history.";
+"history.load_error" = "Unable to load your history. Please try again.";
+
+

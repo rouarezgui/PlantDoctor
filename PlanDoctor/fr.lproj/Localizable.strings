@@ -1,0 +1,232 @@
+
+/*
+  Localizable.strings
+  PlanDoctor
+  Created by azertt on 22/11/2026.
+*/
+
+
+/*login*/
+"login.welcome" = "Bienvenue sur PlantDoctor";
+"login.subtitle" = "Connectez-vous à votre compte";
+"login.email_placeholder" = "Adresse e-mail";
+"login.password_placeholder" = "Mot de passe";
+"login.forgot_password" = "Mot de passe oublié ?";
+"login.sign_in" = "Se connecter";
+"login.or" = "OU";
+"login.google" = "Continuer avec Google";
+"login.google_loading" = "Connexion en cours...";
+"login.no_account" = "Vous n'avez pas de compte ?";
+"login.create_account" = "Créer un compte";
+
+"login.required_title" = "Champs obligatoires";
+"login.required_message" = "Veuillez saisir votre e-mail et votre mot de passe.";
+"login.invalid_email_title" = "Adresse e-mail invalide";
+"login.invalid_email_message" = "Veuillez saisir une adresse e-mail valide.";
+"login.failed_title" = "Échec de connexion";
+"login.account_retrieval_error" = "Impossible de récupérer votre compte.";
+"login.success_title" = "Connexion réussie";
+"login.success_message" = "Bienvenue sur PlantDoctor ! 🌱";
+"login.google_success_message" = "Bienvenue sur PlantDoctor avec Google ! 🌱";
+
+"login.configuration_error" = "Configuration incorrecte";
+"login.client_id_missing" = "Le Client ID Firebase est introuvable.";
+"login.google_window_error" = "Impossible d'ouvrir la fenêtre Google.";
+"login.google_failed" = "Connexion Google échouée";
+"login.google_error" = "Erreur Google";
+"login.google_token_error" = "Impossible de récupérer le token Google.";
+"login.firebase_error" = "Erreur Firebase";
+
+"login.reset_email_required_title" = "Adresse e-mail requise";
+"login.reset_email_required_message" = "Saisissez votre adresse e-mail pour recevoir le lien de réinitialisation.";
+"login.reset_success_title" = "E-mail envoyé";
+"login.reset_success_message" = "Consultez votre boîte e-mail pour réinitialiser votre mot de passe.";
+
+"common.error" = "Erreur";
+"common.ok" = "OK";
+
+/*signup*/
+
+"signup.back_to_login" = "Connexion";
+"signup.title" = "Créer un compte";
+"signup.subtitle" = "Rejoignez PlantDoctor et prenez soin de vos plantes 🌱";
+"signup.name_placeholder" = "Nom complet";
+"signup.email_placeholder" = "Adresse e-mail";
+"signup.password_placeholder" = "Mot de passe";
+"signup.confirm_password" = "Confirmer le mot de passe";
+"signup.create_button" = "Créer mon compte";
+"signup.already_account" = "Vous avez déjà un compte ?";
+"signup.sign_in" = "Se connecter";
+
+"signup.required_title" = "Champs obligatoires";
+"signup.required_message" = "Veuillez remplir tous les champs.";
+"signup.invalid_email_title" = "Adresse e-mail invalide";
+"signup.invalid_email_message" = "Veuillez saisir une adresse e-mail valide.";
+"signup.password_mismatch_title" = "Mot de passe incorrect";
+"signup.password_mismatch_message" = "Les deux mots de passe ne correspondent pas.";
+"signup.password_short_title" = "Mot de passe trop court";
+"signup.password_short_message" = "Le mot de passe doit contenir au moins 6 caractères.";
+"signup.registration_error" = "Erreur d'inscription";
+"signup.account_creation_error" = "Impossible de récupérer le compte créé.";
+"signup.account_created" = "Compte créé";
+"signup.profile_name_error" = "Votre compte existe, mais le nom du profil n'a pas pu être enregistré.";
+"signup.welcome_title" = "Bienvenue sur PlantDoctor !";
+"signup.success_message" = "Votre compte a été créé avec succès.";
+"common.error" = "Erreur";
+"common.ok" = "OK";
+
+// MARK: - Accueil
+"home.greeting %@" = "Bonjour, %@ 👋";
+"home.subtitle" = "Prenez soin de votre jardin aujourd'hui.";
+"home.brand" = "PLANTDOCTOR";
+"home.banner_title" = "Votre jardin mérite le meilleur soin 🌿";
+"home.banner_description" = "Surveillez la santé de vos plantes et détectez les maladies grâce à l'intelligence artificielle.";
+"home.analyze" = "Analyser une plante";
+"home.explore" = "Explorez PlantDoctor";
+"home.smart_diagnosis" = "Diagnostic intelligent";
+"home.smart_diagnosis_description" = "Identifiez les maladies de vos plantes.";
+"home.history" = "Historique des analyses";
+"home.history_description" = "Consultez vos précédents diagnostics.";
+"home.greeting" = "Bonjour,";
+"home.default_name" = "Jardinier";
+
+/*meteo*/
+
+"weather.title" = "Météo de votre jardin";
+"weather.city" = "Sousse";
+"weather.loading" = "Chargement de la météo...";
+"weather.refresh" = "Actualiser la météo";
+"weather.error" = "Impossible de récupérer les données météo.";
+"weather.retry" = "Réessayer";
+"weather.no_data" = "Aucune donnée météo disponible.";
+"weather.plant_advice" = "Conseil pour vos plantes";
+
+"weather.condition.clear" = "Ensoleillé";
+"weather.condition.partly_cloudy" = "Partiellement nuageux";
+"weather.condition.cloudy" = "Nuageux";
+"weather.condition.fog" = "Brouillard";
+"weather.condition.drizzle" = "Bruine";
+"weather.condition.rain" = "Pluie";
+"weather.condition.snow" = "Neige";
+"weather.condition.showers" = "Averses";
+"weather.condition.storm" = "Orage";
+"weather.condition.unknown" = "Conditions inconnues";
+
+"weather.advice.storm" = "Protégez vos plantes des fortes intempéries et évitez les interventions au jardin pendant l'orage.";
+"weather.advice.rain" = "La pluie peut réduire les besoins en arrosage. Vérifiez que le sol ne reste pas trop humide.";
+"weather.advice.hot" = "La température est élevée. Surveillez l'humidité du sol et privilégiez un arrosage adapté.";
+"weather.advice.dry" = "L'air est sec. Surveillez vos plantes et vérifiez régulièrement l'humidité du sol.";
+"weather.advice.humid" = "L'humidité est élevée. Surveillez l'apparition de maladies fongiques sur les feuilles.";
+"weather.advice.normal" = "Les conditions semblent modérées. Continuez à surveiller l'état de vos plantes.";
+"weather.city_loading" = "Localisation...";
+"weather.city_unknown" = "Ville inconnue";
+"location.services_disabled" = "Les services de localisation sont désactivés.";
+"location.permission_denied" = "Autorisez l'accès à votre position dans les réglages.";
+"location.unknown_error" = "Impossible de récupérer votre position.";
+
+/*location*/
+"location.permission_denied" = "La localisation est désactivée. Choisissez une ville manuellement ou autorisez la localisation dans les réglages.";
+"location.unknown_error" = "Impossible de récupérer votre position.";
+"location.current" = "Ma position actuelle";
+"location.choose_city" = "Choisir une ville";
+
+
+// MARK: - Navigation
+"tab.home" = "Accueil";
+"tab.diagnosis" = "Diagnostic";
+"tab.history" = "Historique";
+"tab.profile" = "Profil";
+"tab.settings" = "Paramètres";
+
+// MARK: - Paramètres
+"settings.appearance" = "Apparence";
+"settings.theme" = "Thème";
+"settings.selected_theme" = "Thème sélectionné";
+"settings.language" = "Langue";
+"settings.about" = "À propos";
+"settings.version" = "Version";
+
+// MARK: - Thème
+"theme.system" = "Système";
+"theme.light" = "Clair";
+"theme.dark" = "Sombre";
+
+// MARK: - Langue
+"language.french" = "Français";
+"language.english" = "Anglais";
+
+// MARK: - Diagnostic
+"diagnosis.title" = "Diagnostic des plantes";
+"diagnosis.subtitle" = "Importez une photo de votre feuille pour détecter une maladie.";
+"diagnosis.no_image" = "Aucune image sélectionnée";
+"diagnosis.choose_photo" = "Choisir une photo";
+"diagnosis.analyzing" = "Analyse en cours...";
+"diagnosis.start" = "Lancer le diagnostic";
+"diagnosis.description" = "L'analyse est effectuée directement sur votre appareil grâce à l'intelligence artificielle.";
+"diagnosis.save_error_title" = "Sauvegarde impossible";
+"diagnosis.save_error_message" = "Le diagnostic a réussi, mais n'a pas pu être enregistré dans votre historique.";
+"diagnosis.take_photo" = "Prendre une photo";
+"diagnosis.camera_unavailable" = "La caméra n'est pas disponible sur cet appareil.";
+
+// MARK: - Messages communs
+"common.error" = "Erreur";
+"common.ok" = "OK";
+"common.unknown_error" = "Une erreur est survenue.";
+
+/* Diagnostic */
+"diagnosis.header" = "Diagnostic de votre plante";
+"diagnosis.subtitle" = "Importez une photo de votre feuille pour détecter une maladie.";
+"diagnosis.no_image" = "Aucune image sélectionnée";
+"diagnosis.choose_photo" = "Choisir une photo";
+"diagnosis.analyzing" = "Analyse en cours...";
+"diagnosis.start" = "Lancer le diagnostic";
+"diagnosis.description" = "L'analyse est effectuée directement sur votre appareil grâce à l'intelligence artificielle.";
+"diagnosis.title" = "Diagnostic";
+"diagnosis.model_error" = "Impossible de charger le modèle Core ML.";
+"diagnosis.save_error_title" = "Sauvegarde impossible";
+"diagnosis.save_error_message" = "Le diagnostic a réussi, mais n'a pas été enregistré dans votre historique.";
+
+/* Résultat */
+
+"result.title" = "Résultat du diagnostic";
+"result.healthy" = "Plante saine";
+"result.disease_detected" = "Maladie détectée";
+"result.prediction_score" = "Score de prédiction";
+"result.model_confidence" = "Confiance du modèle";
+"result.disclaimer" = "Ce résultat est une prédiction automatique du modèle IA. Il constitue une aide indicative et ne remplace pas l'avis d'un spécialiste des plantes.";
+"common.close" = "Fermer";
+
+
+/* Commun */
+"common.error" = "Erreur";
+"common.ok" = "OK";
+"common.close" = "Fermer";
+"common.unknown_error" = "Une erreur est survenue.";
+
+/*Profile*/
+"profile.title" = "Mon profil";
+"profile.account" = "Informations du compte";
+"profile.email" = "Adresse email";
+"profile.uid" = "Identifiant utilisateur";
+"profile.logout" = "Se déconnecter";
+"profile.logout_title" = "Déconnexion";
+"profile.logout_confirmation" = "Voulez-vous vraiment vous déconnecter ?";
+"profile.cancel" = "Annuler";
+"profile.default_name" = "Utilisateur PlantDoctor";
+"profile.no_email" = "Aucun email";
+"profile.unavailable" = "Non disponible";
+
+/*history*/
+
+"history.title" = "Historique";
+"history.loading" = "Chargement de votre historique...";
+"history.retry" = "Réessayer";
+"history.refresh" = "Actualiser";
+"history.empty_title" = "Votre historique";
+"history.empty_description" = "Vous n'avez pas encore effectué de diagnostic.";
+"history.empty_hint" = "Vos prochaines analyses apparaîtront ici.";
+"history.healthy" = "Plante saine";
+"history.disease_detected" = "Maladie détectée";
+"history.login_required" = "Veuillez vous connecter pour consulter votre historique.";
+"history.load_error" = "Impossible de charger votre historique. Veuillez réessayer.";
+

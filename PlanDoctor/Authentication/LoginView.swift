@@ -5,8 +5,6 @@
 //  Created by azertt on 7/11/2026.
 //
 
-
-
 import SwiftUI
 import UIKit
 import FirebaseAuth
@@ -14,6 +12,8 @@ import FirebaseCore
 import GoogleSignIn
 
 struct LoginView: View {
+    @AppStorage("selectedAppLanguage")
+    private var selectedLanguage = "fr"
 
     // MARK: - Navigation
 
@@ -46,13 +46,38 @@ struct LoginView: View {
     // MARK: - Body
 
     var body: some View {
-
         NavigationStack {
             ZStack {
                 backgroundView
 
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 25) {
+                        HStack {
+                            Spacer()
+
+                            Menu {
+                                Button("🇫🇷 Français") {
+                                    selectedLanguage = "fr"
+                                }
+
+                                Button("🇬🇧 English") {
+                                    selectedLanguage = "en"
+                                }
+                            } label: {
+                                HStack(spacing: 6) {
+                                    Image(systemName: "globe")
+                                    Text(selectedLanguage == "fr" ? "FR" : "EN")
+                                    Image(systemName: "chevron.down")
+                                        .font(.system(size: 10))
+                                }
+                                .font(.system(size: 14, weight: .bold))
+                                .foregroundStyle(.white)
+                                .padding(.horizontal, 14)
+                                .padding(.vertical, 9)
+                                .background(.white.opacity(0.15))
+                                .clipShape(Capsule())
+                            }
+                        }
 
                         Spacer(minLength: 35)
 
@@ -94,12 +119,12 @@ struct LoginView: View {
                         // MARK: Welcome Text
 
                         VStack(spacing: 9) {
-                            Text("Bienvenue sur PlantDoctor")
+                            Text("login.welcome")
                                 .font(.system(size: 25, weight: .bold))
                                 .foregroundStyle(.white)
                                 .multilineTextAlignment(.center)
 
-                            Text("Connectez-vous à votre compte")
+                            Text("login.subtitle")
                                 .font(.system(size: 14))
                                 .foregroundStyle(.white.opacity(0.75))
                         }
@@ -116,7 +141,7 @@ struct LoginView: View {
                                     .font(.system(size: 20))
 
                                 TextField(
-                                    "Adresse e-mail",
+                                    "login.email_placeholder",
                                     text: $email
                                 )
                                 .foregroundStyle(.white)
@@ -138,12 +163,12 @@ struct LoginView: View {
                                 Group {
                                     if showPassword {
                                         TextField(
-                                            "Mot de passe",
+                                            "login.password_placeholder",
                                             text: $password
                                         )
                                     } else {
                                         SecureField(
-                                            "Mot de passe",
+                                            "login.password_placeholder",
                                             text: $password
                                         )
                                     }
@@ -170,11 +195,13 @@ struct LoginView: View {
                             HStack {
                                 Spacer()
 
-                                Button("Mot de passe oublié ?") {
+                                Button {
                                     resetPassword()
+                                } label: {
+                                    Text("login.forgot_password")
+                                        .font(.system(size: 13, weight: .medium))
+                                        .foregroundStyle(limeGreen)
                                 }
-                                .font(.system(size: 13, weight: .medium))
-                                .foregroundStyle(limeGreen)
                                 .disabled(
                                     isResettingPassword ||
                                     isLoading ||
@@ -192,7 +219,7 @@ struct LoginView: View {
                                         ProgressView()
                                             .tint(.white)
                                     } else {
-                                        Text("Se connecter")
+                                        Text("login.sign_in")
                                             .font(
                                                 .system(
                                                     size: 17,
@@ -239,7 +266,7 @@ struct LoginView: View {
                                     .fill(.white.opacity(0.3))
                                     .frame(height: 1)
 
-                                Text("OU")
+                                Text("login.or")
                                     .font(.caption.bold())
                                     .foregroundStyle(.white.opacity(0.7))
 
@@ -265,8 +292,8 @@ struct LoginView: View {
 
                                     Text(
                                         isGoogleSigningIn
-                                        ? "Connexion en cours..."
-                                        : "Continuer avec Google"
+                                        ? "login.google_loading"
+                                        : "login.google"
                                     )
                                     .font(.system(size: 16, weight: .semibold))
                                 }
@@ -297,13 +324,13 @@ struct LoginView: View {
                         // MARK: Signup Navigation
 
                         HStack(spacing: 6) {
-                            Text("Vous n'avez pas de compte ?")
+                            Text("login.no_account")
                                 .foregroundStyle(.white.opacity(0.85))
 
                             NavigationLink(
                                 destination: SignupView()
                             ) {
-                                Text("Créer un compte")
+                                Text("login.create_account")
                                     .foregroundStyle(limeGreen)
                                     .fontWeight(.bold)
                             }
@@ -316,14 +343,17 @@ struct LoginView: View {
                 }
             }
             .toolbar(.hidden, for: .navigationBar)
-            .alert(alertTitle, isPresented: $showAlert) {
-                Button("OK") {
+            .alert(
+                LocalizedStringKey(alertTitle),
+                isPresented: $showAlert
+            ) {
+                Button("common.ok") {
                     if loginSucceeded {
                         onLoginSuccess?()
                     }
                 }
             } message: {
-                Text(alertMessage)
+                Text(LocalizedStringKey(alertMessage))
             }
         }
         .preferredColorScheme(.dark)
@@ -379,8 +409,16 @@ struct LoginView: View {
         )
 
         guard !userEmail.isEmpty, !password.isEmpty else {
-            alertTitle = "Champs obligatoires"
-            alertMessage = "Veuillez saisir votre e-mail et votre mot de passe."
+            alertTitle = "login.required_title"
+            alertMessage = "login.required_message"
+            loginSucceeded = false
+            showAlert = true
+            return
+        }
+
+        guard userEmail.contains("@"), userEmail.contains(".") else {
+            alertTitle = "login.invalid_email_title"
+            alertMessage = "login.invalid_email_message"
             loginSucceeded = false
             showAlert = true
             return
@@ -397,7 +435,7 @@ struct LoginView: View {
                 isLoading = false
 
                 if let error = error {
-                    alertTitle = "Échec de connexion"
+                    alertTitle = "login.failed_title"
                     alertMessage = error.localizedDescription
                     loginSucceeded = false
                     showAlert = true
@@ -405,15 +443,15 @@ struct LoginView: View {
                 }
 
                 guard result?.user != nil else {
-                    alertTitle = "Erreur"
-                    alertMessage = "Impossible de récupérer votre compte."
+                    alertTitle = "common.error"
+                    alertMessage = "login.account_retrieval_error"
                     loginSucceeded = false
                     showAlert = true
                     return
                 }
 
-                alertTitle = "Connexion réussie"
-                alertMessage = "Bienvenue sur PlantDoctor ! 🌱"
+                alertTitle = "login.success_title"
+                alertMessage = "login.success_message"
                 loginSucceeded = true
                 showAlert = true
             }
@@ -426,16 +464,16 @@ struct LoginView: View {
 
         guard let clientID = FirebaseApp.app()?.options.clientID else {
             showError(
-                title: "Configuration incorrecte",
-                message: "Le Client ID Firebase est introuvable."
+                title: "login.configuration_error",
+                message: "login.client_id_missing"
             )
             return
         }
 
         guard let presentingViewController = getRootViewController() else {
             showError(
-                title: "Erreur",
-                message: "Impossible d'ouvrir la fenêtre Google."
+                title: "common.error",
+                message: "login.google_window_error"
             )
             return
         }
@@ -460,7 +498,7 @@ struct LoginView: View {
                     }
 
                     showError(
-                        title: "Connexion Google échouée",
+                        title: "login.google_failed",
                         message: error.localizedDescription
                     )
                 }
@@ -474,8 +512,8 @@ struct LoginView: View {
                 DispatchQueue.main.async {
                     isGoogleSigningIn = false
                     showError(
-                        title: "Erreur Google",
-                        message: "Impossible de récupérer le token Google."
+                        title: "login.google_error",
+                        message: "login.google_token_error"
                     )
                 }
                 return
@@ -495,7 +533,7 @@ struct LoginView: View {
 
                     if let error = error {
                         showError(
-                            title: "Erreur Firebase",
+                            title: "login.firebase_error",
                             message: error.localizedDescription
                         )
                         return
@@ -503,14 +541,14 @@ struct LoginView: View {
 
                     guard result?.user != nil else {
                         showError(
-                            title: "Erreur",
-                            message: "Impossible de récupérer votre compte."
+                            title: "common.error",
+                            message: "login.account_retrieval_error"
                         )
                         return
                     }
 
-                    alertTitle = "Connexion réussie"
-                    alertMessage = "Bienvenue sur PlantDoctor avec Google ! 🌱"
+                    alertTitle = "login.success_title"
+                    alertMessage = "login.google_success_message"
                     loginSucceeded = true
                     showAlert = true
                 }
@@ -549,8 +587,16 @@ struct LoginView: View {
         )
 
         guard !userEmail.isEmpty else {
-            alertTitle = "Adresse e-mail requise"
-            alertMessage = "Saisissez votre adresse e-mail pour recevoir le lien de réinitialisation."
+            alertTitle = "login.reset_email_required_title"
+            alertMessage = "login.reset_email_required_message"
+            loginSucceeded = false
+            showAlert = true
+            return
+        }
+
+        guard userEmail.contains("@"), userEmail.contains(".") else {
+            alertTitle = "login.invalid_email_title"
+            alertMessage = "login.invalid_email_message"
             loginSucceeded = false
             showAlert = true
             return
@@ -564,11 +610,11 @@ struct LoginView: View {
                 isResettingPassword = false
 
                 if let error = error {
-                    alertTitle = "Erreur"
+                    alertTitle = "common.error"
                     alertMessage = error.localizedDescription
                 } else {
-                    alertTitle = "E-mail envoyé"
-                    alertMessage = "Consultez votre boîte e-mail pour réinitialiser votre mot de passe."
+                    alertTitle = "login.reset_success_title"
+                    alertMessage = "login.reset_success_message"
                 }
 
                 loginSucceeded = false

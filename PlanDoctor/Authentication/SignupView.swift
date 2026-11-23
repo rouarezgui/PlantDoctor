@@ -8,6 +8,9 @@ struct SignupView: View {
 
     @Environment(\.dismiss) private var dismiss
 
+    @AppStorage("selectedAppLanguage")
+    private var selectedLanguage = "fr"
+
     // MARK: - Form States
 
     @State private var fullName = ""
@@ -34,19 +37,11 @@ struct SignupView: View {
         blue: 0.05
     )
 
-    private let darkGreen = Color(
-        red: 0.01,
-        green: 0.08,
-        blue: 0.04
-    )
-
     // MARK: - Body
 
     var body: some View {
 
         ZStack {
-
-            // Background
 
             backgroundView
 
@@ -54,17 +49,50 @@ struct SignupView: View {
 
                 VStack(spacing: 22) {
 
+                    // Language Selector
+
+                    HStack {
+                        Spacer()
+
+                        Menu {
+                            Button("🇫🇷 Français") {
+                                selectedLanguage = "fr"
+                            }
+
+                            Button("🇬🇧 English") {
+                                selectedLanguage = "en"
+                            }
+
+                        } label: {
+                            HStack(spacing: 6) {
+                                Image(systemName: "globe")
+
+                                Text(
+                                    selectedLanguage == "fr" ? "FR" : "EN"
+                                )
+
+                                Image(systemName: "chevron.down")
+                                    .font(.system(size: 10))
+                            }
+                            .font(.system(size: 14, weight: .bold))
+                            .foregroundStyle(.white)
+                            .padding(.horizontal, 14)
+                            .padding(.vertical, 9)
+                            .background(.white.opacity(0.15))
+                            .clipShape(Capsule())
+                        }
+                    }
+                    .padding(.top, 15)
+
                     // Back Button
 
                     HStack {
-
                         Button {
                             dismiss()
                         } label: {
-
                             HStack(spacing: 8) {
                                 Image(systemName: "chevron.left")
-                                Text("Connexion")
+                                Text("signup.back_to_login")
                             }
                             .font(.system(size: 15, weight: .medium))
                             .foregroundStyle(.white)
@@ -72,14 +100,12 @@ struct SignupView: View {
 
                         Spacer()
                     }
-                    .padding(.top, 15)
 
                     // Logo
 
                     VStack(spacing: 10) {
 
                         ZStack {
-
                             RoundedRectangle(cornerRadius: 25)
                                 .fill(
                                     LinearGradient(
@@ -116,11 +142,11 @@ struct SignupView: View {
 
                     VStack(spacing: 8) {
 
-                        Text("Créer un compte")
+                        Text("signup.title")
                             .font(.system(size: 29, weight: .bold))
                             .foregroundStyle(.white)
 
-                        Text("Rejoignez PlantDoctor et prenez soin de vos plantes 🌱")
+                        Text("signup.subtitle")
                             .font(.system(size: 13))
                             .foregroundStyle(.white.opacity(0.75))
                             .multilineTextAlignment(.center)
@@ -135,7 +161,7 @@ struct SignupView: View {
 
                         glassTextField(
                             icon: "person",
-                            placeholder: "Nom complet",
+                            placeholder: "signup.name_placeholder",
                             text: $fullName
                         )
                         .textContentType(.name)
@@ -144,7 +170,7 @@ struct SignupView: View {
 
                         glassTextField(
                             icon: "envelope",
-                            placeholder: "Adresse e-mail",
+                            placeholder: "signup.email_placeholder",
                             text: $email
                         )
                         .keyboardType(.emailAddress)
@@ -155,7 +181,7 @@ struct SignupView: View {
                         // Password
 
                         passwordField(
-                            placeholder: "Mot de passe",
+                            placeholder: "signup.password_placeholder",
                             password: $password,
                             isVisible: $showPassword
                         )
@@ -164,7 +190,7 @@ struct SignupView: View {
                         // Confirm Password
 
                         passwordField(
-                            placeholder: "Confirmer le mot de passe",
+                            placeholder: "signup.confirm_password",
                             password: $confirmPassword,
                             isVisible: $showConfirmPassword
                         )
@@ -184,7 +210,7 @@ struct SignupView: View {
 
                                 } else {
 
-                                    Text("Créer mon compte")
+                                    Text("signup.create_button")
                                         .font(
                                             .system(
                                                 size: 17,
@@ -228,7 +254,6 @@ struct SignupView: View {
                         RoundedRectangle(cornerRadius: 28)
                     )
                     .overlay {
-
                         RoundedRectangle(cornerRadius: 28)
                             .stroke(
                                 Color.white.opacity(0.30),
@@ -244,14 +269,14 @@ struct SignupView: View {
 
                     HStack(spacing: 6) {
 
-                        Text("Vous avez déjà un compte ?")
+                        Text("signup.already_account")
                             .foregroundStyle(.white.opacity(0.85))
 
                         Button {
                             dismiss()
                         } label: {
 
-                            Text("Se connecter")
+                            Text("signup.sign_in")
                                 .foregroundStyle(limeGreen)
                                 .fontWeight(.bold)
                         }
@@ -262,9 +287,12 @@ struct SignupView: View {
                 .padding(.horizontal, 22)
             }
         }
-        .alert(alertTitle, isPresented: $showAlert) {
+        .alert(
+            LocalizedStringKey(alertTitle),
+            isPresented: $showAlert
+        ) {
 
-            Button("OK") {
+            Button("common.ok") {
 
                 if registrationSucceeded {
                     dismiss()
@@ -272,7 +300,7 @@ struct SignupView: View {
             }
 
         } message: {
-            Text(alertMessage)
+            Text(LocalizedStringKey(alertMessage))
         }
         .preferredColorScheme(.dark)
         .toolbar(.hidden, for: .navigationBar)
@@ -337,10 +365,13 @@ struct SignupView: View {
                 .font(.system(size: 20))
                 .foregroundStyle(.white)
 
-            TextField(placeholder, text: text)
-                .font(.system(size: 15))
-                .foregroundStyle(.white)
-                .tint(.white)
+            TextField(
+                LocalizedStringKey(placeholder),
+                text: text
+            )
+            .font(.system(size: 15))
+            .foregroundStyle(.white)
+            .tint(.white)
         }
         .padding(.horizontal, 18)
         .frame(height: 60)
@@ -375,14 +406,14 @@ struct SignupView: View {
                 if isVisible.wrappedValue {
 
                     TextField(
-                        placeholder,
+                        LocalizedStringKey(placeholder),
                         text: password
                     )
 
                 } else {
 
                     SecureField(
-                        placeholder,
+                        LocalizedStringKey(placeholder),
                         text: password
                     )
                 }
@@ -438,10 +469,10 @@ struct SignupView: View {
               !password.isEmpty,
               !confirmPassword.isEmpty else {
 
-            alertTitle = "Champs obligatoires"
-            alertMessage = "Veuillez remplir tous les champs."
-            registrationSucceeded = false
-            showAlert = true
+            showValidationError(
+                title: "signup.required_title",
+                message: "signup.required_message"
+            )
             return
         }
 
@@ -450,10 +481,10 @@ struct SignupView: View {
         guard userEmail.contains("@"),
               userEmail.contains(".") else {
 
-            alertTitle = "Adresse e-mail invalide"
-            alertMessage = "Veuillez saisir une adresse e-mail valide."
-            registrationSucceeded = false
-            showAlert = true
+            showValidationError(
+                title: "signup.invalid_email_title",
+                message: "signup.invalid_email_message"
+            )
             return
         }
 
@@ -461,10 +492,10 @@ struct SignupView: View {
 
         guard password == confirmPassword else {
 
-            alertTitle = "Mot de passe incorrect"
-            alertMessage = "Les deux mots de passe ne correspondent pas."
-            registrationSucceeded = false
-            showAlert = true
+            showValidationError(
+                title: "signup.password_mismatch_title",
+                message: "signup.password_mismatch_message"
+            )
             return
         }
 
@@ -472,10 +503,10 @@ struct SignupView: View {
 
         guard password.count >= 6 else {
 
-            alertTitle = "Mot de passe trop court"
-            alertMessage = "Le mot de passe doit contenir au moins 6 caractères."
-            registrationSucceeded = false
-            showAlert = true
+            showValidationError(
+                title: "signup.password_short_title",
+                message: "signup.password_short_message"
+            )
             return
         }
 
@@ -493,8 +524,10 @@ struct SignupView: View {
                 DispatchQueue.main.async {
 
                     isLoading = false
-                    alertTitle = "Erreur d'inscription"
+
+                    alertTitle = "signup.registration_error"
                     alertMessage = error.localizedDescription
+
                     registrationSucceeded = false
                     showAlert = true
                 }
@@ -507,8 +540,10 @@ struct SignupView: View {
                 DispatchQueue.main.async {
 
                     isLoading = false
-                    alertTitle = "Erreur"
-                    alertMessage = "Impossible de récupérer le compte créé."
+
+                    alertTitle = "common.error"
+                    alertMessage = "signup.account_creation_error"
+
                     registrationSucceeded = false
                     showAlert = true
                 }
@@ -527,19 +562,15 @@ struct SignupView: View {
 
                     isLoading = false
 
-                    if let error = error {
+                    if error != nil {
 
-                        alertTitle = "Compte créé"
-                        alertMessage = """
-                        Votre compte existe, mais le nom du profil \
-                        n'a pas pu être enregistré : \
-                        \(error.localizedDescription)
-                        """
+                        alertTitle = "signup.account_created"
+                        alertMessage = "signup.profile_name_error"
 
                     } else {
 
-                        alertTitle = "Bienvenue sur PlantDoctor !"
-                        alertMessage = "Votre compte a été créé avec succès."
+                        alertTitle = "signup.welcome_title"
+                        alertMessage = "signup.success_message"
                     }
 
                     registrationSucceeded = true
@@ -547,6 +578,18 @@ struct SignupView: View {
                 }
             }
         }
+    }
+
+    // MARK: - Validation Error
+
+    private func showValidationError(
+        title: String,
+        message: String
+    ) {
+        alertTitle = title
+        alertMessage = message
+        registrationSucceeded = false
+        showAlert = true
     }
 }
 

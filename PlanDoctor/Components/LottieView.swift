@@ -23,13 +23,14 @@ struct LottieView: UIViewRepresentable {
 
         animationView.contentMode = .scaleAspectFit
         animationView.loopMode = .playOnce
+        animationView.backgroundBehavior = .pauseAndRestore
+        animationView.backgroundColor = .clear
 
         if let animation = LottieAnimation.named(filename) {
 
             animationView.animation = animation
 
             animationView.play { finished in
-
                 guard finished else { return }
 
                 DispatchQueue.main.async {
@@ -38,8 +39,8 @@ struct LottieView: UIViewRepresentable {
             }
 
         } else {
+            print("Lottie animation not found: \(filename)")
 
-            // If the animation file is missing, continue to the app.
             DispatchQueue.main.async {
                 context.coordinator.animationDidComplete()
             }
@@ -57,7 +58,7 @@ struct LottieView: UIViewRepresentable {
 
     // MARK: - Coordinator
 
-    class Coordinator {
+    final class Coordinator {
 
         var onAnimationCompleted: () -> Void
         private var hasCompleted = false
@@ -67,7 +68,6 @@ struct LottieView: UIViewRepresentable {
         }
 
         func animationDidComplete() {
-
             guard !hasCompleted else { return }
 
             hasCompleted = true

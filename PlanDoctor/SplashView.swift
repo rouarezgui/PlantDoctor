@@ -17,7 +17,6 @@ struct SplashView: View {
 
             if showMainContent {
 
-                // Firebase decides whether to show Login or Dashboard.
                 ContentView()
                     .transition(.opacity)
 
@@ -28,9 +27,19 @@ struct SplashView: View {
             }
         }
         .animation(
-            .easeInOut(duration: 0.4),
+            .easeInOut(duration: 0.5),
             value: showMainContent
         )
+        .task {
+
+            // Safety timeout: do not keep the user
+            // on the splash screen indefinitely.
+            try? await Task.sleep(
+                nanoseconds: 10_000_000_000
+            )
+
+            showMainContent = true
+        }
     }
 
     // MARK: - Splash Screen
@@ -53,7 +62,6 @@ struct SplashView: View {
                 LottieView(
                     filename: "plantdoctor_animation",
                     onAnimationCompleted: {
-
                         showMainContent = true
                     }
                 )
@@ -61,19 +69,24 @@ struct SplashView: View {
 
                 Text("PlantDoctor")
                     .font(.system(size: 34, weight: .bold))
-                    .foregroundStyle(.green)
+                    .foregroundStyle(Color.green)
 
                 Text("Prenez soin de vos plantes 🌱")
                     .font(.title3)
+                    .foregroundStyle(.primary)
 
                 Text(
                     "Détectez les maladies de vos plantes grâce à l'intelligence artificielle."
                 )
+                .font(.body)
                 .multilineTextAlignment(.center)
                 .foregroundStyle(.secondary)
-                .padding(.horizontal, 15)
+                .padding(.horizontal, 20)
 
                 Spacer()
+
+                ProgressView()
+                    .tint(.green)
 
                 Text("Préparation de votre jardin...")
                     .font(.caption)
